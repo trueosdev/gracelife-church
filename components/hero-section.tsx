@@ -34,7 +34,6 @@ export function HeroSection() {
 
       <button
         className="absolute bottom-8 right-8 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-        aria-label="Pause"
       >
         <span className="text-2xl">❚❚</span>
       </button>
