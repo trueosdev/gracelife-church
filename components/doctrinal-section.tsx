@@ -1,23 +1,27 @@
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export function DoctrinalSection() {
   return (
-    <section className="py-20 px-6 bg-[#2C4061]">
+    <section className="py-20 px-6 bg-[#ffffff]">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
+          <h2 className="text-4xl md:text-6xl font-bold text-[#2C4061] mb-8 leading-tight text-right">
             Our Doctrinal<br />Statement
           </h2>
-          <p className="text-lg text-gray-300 mb-8 leading-relaxed max-w-lg">
+          <p className="text-lg text-[#2C4061] mb-8 leading-relaxed max-w-lg text-right">
             GraceLife Church Statement of Faith is a summary of Basic Christian Doctrine that summarizes the beliefs of GraceLife Church.
           </p>
-          <Link 
-            href="/about/statement-of-faith" 
-            className="text-white text-xl italic underline underline-offset-4 hover:text-gray-300 transition-colors"
-          >
-            Read the Statement
+          <div className="flex justify-end">
+          <Link href="/about/statement-of-faith">
+            <Button className="bg-white text-[#2C4061] border border-[#2C4061] hover:bg-[#2C4061]/80 hover:text-[#FFFFFF] transition-colors px-8 py-6 text-base rounded-full">
+              Read the Statement
+            </Button>
           </Link>
+          </div>
         </div>
+
+
 
         <div className="relative group overflow-hidden rounded-lg">
           <img 
