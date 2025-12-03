@@ -49,11 +49,12 @@ export function Footer() {
             <h3 className="font-semibold text-lg mb-4">Visit Us</h3>
             <address className="not-italic text-white/80 text-sm text-center md:text-left space-y-2">
               <p>GraceLife Church</p>
-              <p>Decatur, AL</p>
+              <p>1311 19th Ave SE</p>
+              <p>Decatur, AL 35601</p>
               <p className="pt-2">
                 <span className="font-medium text-white">Sunday Service</span>
                 <br />
-                10:00 AM
+                10:00 AM - 11:20 PM CST
               </p>
             </address>
           </div>

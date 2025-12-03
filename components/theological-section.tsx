@@ -16,8 +16,9 @@ export function TheologicalSection() {
           </div>
         </div>
 
-        <div className="relative">
-          <img src="/theology.webp" alt="Theological Distinctives" className="rounded-lg w-full h-auto" />
+        <div className="relative group overflow-hidden rounded-lg">
+          <img src="/theology.webp" alt="Theological Distinctives" className="w-full h-auto transition-transform duration-300 group-hover:scale-105" />
+          <div className="absolute inset-0 bg-white/0 backdrop-blur-0 transition-all duration-300 group-hover:bg-white/10" />
         </div>
       </div>
     </section>

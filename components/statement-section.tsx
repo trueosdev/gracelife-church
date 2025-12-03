@@ -4,8 +4,9 @@ export function StatementSection() {
   return (
     <section className="py-20 px-6 bg-[#F5F3EE]">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div className="relative">
-          <img src="/gospelcentered.webp" alt="Gospel-Centered Church" className="rounded-lg w-full h-auto" />
+        <div className="relative group overflow-hidden rounded-lg">
+          <img src="/gospelcentered.webp" alt="Gospel-Centered Church" className="w-full h-auto transition-transform duration-300 group-hover:scale-105" />
+          <div className="absolute inset-0 bg-white/0 backdrop-blur-0 transition-all duration-300 group-hover:bg-white/10" />
         </div>
 
         <div>

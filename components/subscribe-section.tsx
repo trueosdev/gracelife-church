@@ -29,7 +29,7 @@ export function SubscribeSection() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="flex-1 px-4 py-4 border-2 border-[#1a2a3a] bg-white text-[#1a2a3a] text-lg focus:outline-none focus:ring-2 focus:ring-[#5a8a9a]"
+              className="flex-1 px-4 py-4 border-1 border-[#c2c1be] bg-white text-[#1a2a3a] text-lg focus:outline-none focus:ring-2 focus:ring-[#5a8a9a]"
               placeholder=""
             />
             <button
