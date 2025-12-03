@@ -1,7 +1,8 @@
 import Image from "next/image"
+import Link from "next/link"
 
 const quickLinks = [
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { label: "Pastor's Pen", href: "#pastors-pen" },
   { label: "Calendar", href: "#calendar" },
   { label: "Resources", href: "#resources" },
@@ -18,11 +19,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Logo & Tagline */}
           <div className="flex flex-col items-center md:items-start">
-            <img
-              src="/white-gracelife.svg"
-              alt="GraceLife Church"
-              className="h-15 w-auto mb-4"
-            />
+            <Link href="/">
+              <img
+                src="/white-gracelife.svg"
+                alt="GraceLife Church"
+                className="h-15 w-auto mb-4"
+              />
+            </Link>
             <p className="text-white/80 text-sm text-center md:text-left">
               Find Grace · Find Truth · Find Life
             </p>

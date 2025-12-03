@@ -6,25 +6,27 @@ export function WorshipSection() {
     >
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center px-8 py-20 text-center">
-        <h2 className="text-white text-5xl md:text-6xl font-bold mb-8 leading-none">
-          Sunday Morning<br />
-          <span className="text-7xl md:text-8xl" style={{ fontFamily: "var(--font-montserrat-alt)", fontWeight: 500 }}>WORSHIP</span>
-        </h2>
+      <div className="relative z-10 max-w-5xl mx-auto px-8 py-20">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          {/* Left: Heading */}
+          <div>
+            <h2 className="text-white text-5xl md:text-6xl font-bold leading-none text-left">
+              Sunday Morning<br />
+              <span className="text-7xl md:text-8xl" style={{ fontFamily: "var(--font-montserrat-alt)", fontWeight: 500 }}>WORSHIP</span>
+            </h2>
+          </div>
 
-        <div className="bg-[#2C4061]/40 backdrop-blur-md px-8 py-6 mb-8 hover:bg-[#2C4061]/25 transition-colors rounded-lg border border-white/20">
-          <p className="text-gray-200 text-lg leading-relaxed">
-            10:00 AM – 11:20 PM CST<br />
-            GraceLife Church<br />
-            1311 19th Ave SE<br />
-            Decatur, AL 35601
-          </p>
-        </div>
-        
-      <div className="bg-white/10 backdrop-blur-md px-8 py-6 hover:bg-white/20 transition-colors rounded-lg border border-white/20">
-          <p className="text-gray-200 text-lg leading-relaxed">
-            We would love for you to worship with us!
-          </p>
+          {/* Right: Service Info */}
+          <div className="flex justify-end">
+            <div className="bg-[#808080]/40 backdrop-blur-md px-8 py-6 hover:bg-[#ffffff]/25 transition-colors rounded-lg border border-white/20">
+              <p className="text-gray-200 text-lg leading-relaxed text-center">
+                10:00 AM – 11:20 PM CST<br />
+                GraceLife Church<br />
+                1311 19th Ave SE<br />
+                Decatur, AL 35601
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

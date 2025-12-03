@@ -1,11 +1,12 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Search, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const menuItems = [
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { label: "Pastor's Pen", href: "#pastors-pen" },
   { label: "Calendar", href: "#calendar" },
   { label: "Resources", href: "#resources" },
@@ -20,11 +21,13 @@ export function Header() {
     <header className="absolute top-0 left-0 right-0 z-50 px-6 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center">
-          <img 
-            src="/white-gracelife.svg" 
-            alt="GraceLife Church" 
-            className="h-10 w-auto"
-          />
+          <Link href="/">
+            <img 
+              src="/white-gracelife.svg" 
+              alt="GraceLife Church" 
+              className="h-10 w-auto"
+            />
+          </Link>
         </div>
 
         <div className="flex items-center gap-2 relative">
