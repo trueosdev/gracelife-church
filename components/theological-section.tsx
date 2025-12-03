@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 export function TheologicalSection() {
@@ -10,9 +11,11 @@ export function TheologicalSection() {
           Expository preaching. Biblical Community.<br />Kingdom Advancement. Soli Deo Gloria.
           </p>
           <div className="flex justify-end">
-            <Button className="bg-[#2C4061] text-white hover:bg-[#4a7a8a] transition-colors px-8 py-6 text-base rounded-full">
-              Read More
-            </Button>
+            <Link href="/about#distinctives">
+              <Button className="bg-[#2C4061] text-white hover:bg-[#4a7a8a] transition-colors px-8 py-6 text-base rounded-full">
+                Read More
+              </Button>
+            </Link>
           </div>
         </div>
 

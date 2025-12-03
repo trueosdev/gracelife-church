@@ -1,5 +1,6 @@
 import { Header } from "@/components/header"
 import { DoctrinalSection } from "@/components/doctrinal-section"
+import { DistinctivesSection } from "@/components/distinctives-section"
 import { Footer } from "@/components/footer"
 
 export default function AboutPage() {
@@ -18,6 +19,7 @@ export default function AboutPage() {
       </section>
 
       <DoctrinalSection />
+      <DistinctivesSection />
       <Footer />
     </main>
   )
