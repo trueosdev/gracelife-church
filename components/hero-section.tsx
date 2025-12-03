@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 
 export function HeroSection() {
   return (
@@ -23,7 +21,7 @@ export function HeroSection() {
             <img 
               src="/white-logoText.svg" 
               alt="GraceLife Church" 
-              className="h-10 md:h-16 w-auto mt-4"/>
+              className="h-20 md:h-25 w-auto mt-4"/>
           </h1>
 
           <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden lg:block">

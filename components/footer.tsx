@@ -1,0 +1,72 @@
+import Image from "next/image"
+
+const quickLinks = [
+  { label: "About", href: "#about" },
+  { label: "Pastor's Pen", href: "#pastors-pen" },
+  { label: "Calendar", href: "#calendar" },
+  { label: "Resources", href: "#resources" },
+  { label: "Contact", href: "#contact" },
+  { label: "Give", href: "#give" },
+]
+
+export function Footer() {
+  const currentYear = new Date().getFullYear()
+
+  return (
+    <footer className="bg-[#2C4061] text-white">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          {/* Logo & Tagline */}
+          <div className="flex flex-col items-center md:items-start">
+            <img
+              src="/white-gracelife.svg"
+              alt="GraceLife Church"
+              className="h-15 w-auto mb-4"
+            />
+            <p className="text-white/80 text-sm text-center md:text-left">
+              Find Grace · Find Truth · Find Life
+            </p>
+          </div>
+
+          {/* Navigation */}
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="font-semibold text-lg mb-4">Navigation</h3>
+            <nav className="flex flex-col gap-2">
+              {quickLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-white/80 hover:text-white transition-colors text-sm"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          {/* Contact Info */}
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="font-semibold text-lg mb-4">Visit Us</h3>
+            <address className="not-italic text-white/80 text-sm text-center md:text-left space-y-2">
+              <p>GraceLife Church</p>
+              <p>Decatur, AL</p>
+              <p className="pt-2">
+                <span className="font-medium text-white">Sunday Service</span>
+                <br />
+                10:00 AM
+              </p>
+            </address>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-white/20 mt-10 pt-6">
+          <p className="text-center text-white/60 text-sm">
+            © {currentYear} GraceLife Church. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
+}
+

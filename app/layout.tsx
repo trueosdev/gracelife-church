@@ -1,11 +1,20 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Lora, Montserrat } from "next/font/google"
+import { Montserrat, Montserrat_Alternates } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const lora = Lora({ subsets: ["latin"], weight: ["400", "700"] })
-const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "500", "600", "700"] })
+const montserrat = Montserrat({ 
+  subsets: ["latin"], 
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-montserrat"
+})
+
+const montserratAlternates = Montserrat_Alternates({ 
+  subsets: ["latin"], 
+  weight: ["500"],
+  variable: "--font-montserrat-alt"
+})
 
 export const metadata: Metadata = {
   title: "GraceLife Church, Decatur, AL",
@@ -36,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} antialiased`}>
+      <body className={`${montserrat.variable} ${montserratAlternates.variable} ${montserrat.className} antialiased`}>
         {children}
         <Analytics />
       </body>
