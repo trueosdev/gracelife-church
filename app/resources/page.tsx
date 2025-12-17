@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import dynamic from "next/dynamic"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -23,6 +24,7 @@ interface Resource {
 
 export default function ResourcesPage() {
   const [selectedPdf, setSelectedPdf] = useState<{ url: string; title: string } | null>(null)
+  const router = useRouter()
 
   const resources: Resource[] = [
     {
@@ -58,7 +60,7 @@ export default function ResourcesPage() {
       title: "Sermons",
       description: "Sermons from the preaching ministry of GraceLife Church.",
       icon: <FileText className="w-8 h-8" />,
-      externalUrl: "#", // Update with actual sermons URL
+      externalUrl: "/resources/sermons",
     },
     {
       id: "elder-training",
@@ -73,7 +75,12 @@ export default function ResourcesPage() {
     if (resource.pdfUrl) {
       setSelectedPdf({ url: resource.pdfUrl, title: resource.title })
     } else if (resource.externalUrl) {
-      window.open(resource.externalUrl, "_blank")
+      // Use Next.js router for internal links, window.open for external links
+      if (resource.externalUrl.startsWith("/")) {
+        router.push(resource.externalUrl)
+      } else {
+        window.open(resource.externalUrl, "_blank")
+      }
     }
   }
 

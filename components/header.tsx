@@ -4,14 +4,15 @@ import { useState } from "react"
 import Link from "next/link"
 import { Search, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { siFacebook, siYoutube, siApplepodcasts, siSpotify } from "simple-icons/icons"
 
 const menuItems = [
   { label: "About", href: "/about" },
   { label: "Pastor's Pen", href: "#pastors-pen" },
   { label: "Calendar", href: "#calendar" },
   { label: "Resources", href: "/resources" },
-  { label: "Contact", href: "#contact" },
-  { label: "Give", href: "#give" },
+  { label: "Contact", href: "/contact" },
+  { label: "Give", href: "https://gracelife-church-426203.churchcenter.com/giving" },
 ]
 
 export function Header() {
@@ -31,6 +32,54 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2 relative">
+          {/* Social Icons */}
+          <div className="flex items-center gap-3 mr-2">
+            <a href="https://www.facebook.com/GraceLifeChurchDecatur/" target="_blank" rel="noopener noreferrer" className="text-[#F5F3EE] hover:opacity-80 transition-opacity" aria-label="Facebook">
+              <svg
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5"
+                fill="currentColor"
+              >
+                <path d={siFacebook.path} />
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@gracelifechurchdecatur" target="_blank" rel="noopener noreferrer" className="text-[#F5F3EE] hover:opacity-80 transition-opacity" aria-label="YouTube">
+              <svg
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5"
+                fill="currentColor"
+              >
+                <path d={siYoutube.path} />
+              </svg>
+            </a>
+            <a href="https://podcasts.apple.com/us/podcast/gracelife-church-podcast/id1676514693" target="_blank" rel="noopener noreferrer" className="text-[#F5F3EE] hover:opacity-80 transition-opacity" aria-label="Apple Podcasts">
+              <svg
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5"
+                fill="currentColor"
+              >
+                <path d={siApplepodcasts.path} />
+              </svg>
+            </a>
+            <a href="https://open.spotify.com/show/5NAtfGfB9BEs5LCk1tnvd1?si=d46394a47b654587" target="_blank" rel="noopener noreferrer" className="text-[#F5F3EE] hover:opacity-80 transition-opacity" aria-label="Spotify">
+              <svg
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5"
+                fill="currentColor"
+              >
+                <path d={siSpotify.path} />
+              </svg>
+            </a>
+          </div>
+
           <Button variant="ghost" size="sm" className="text-[#F5F3EE] hover:bg-black/5">
             <Search className="w-4 h-4 mr-2" />
             Search

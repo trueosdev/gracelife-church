@@ -6,7 +6,7 @@ const quickLinks = [
   { label: "Pastor's Pen", href: "#pastors-pen" },
   { label: "Calendar", href: "#calendar" },
   { label: "Resources", href: "/resources" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
   { label: "Give", href: "#give" },
 ]
 
