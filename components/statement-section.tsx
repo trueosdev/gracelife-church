@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 export function StatementSection() {
@@ -6,7 +7,7 @@ export function StatementSection() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="relative group overflow-hidden rounded-lg">
           <img src="/gospelcentered.webp" alt="Gospel-Centered Church" className="w-full h-auto transition-transform duration-300 group-hover:scale-105" />
-          <div className="absolute inset-0 bg-white/0 backdrop-blur-0 transition-all duration-300 group-hover:bg-white/10" />
+          <div className="absolute inset-0 bg-[#F5F3EE]/0 backdrop-blur-0 transition-all duration-300 group-hover:bg-[#F5F3EE]/10" />
         </div>
 
         <div>
@@ -16,9 +17,11 @@ export function StatementSection() {
           and more than believing the right things. The Christian life is a life transformed by the gospel,
           experienced in community, and lived out for the glory of God and the good of our neighbors.
           </p>
-          <Button className="bg-[#2C4061] text-white hover:bg-[#4a7a8a] transition-colors px-8 py-6 text-base rounded-full">
-            Read More
-          </Button>
+          <Link href="/about#staff">
+            <Button className="bg-[#2C4061] text-[#F5F3EE] hover:bg-[#4a7a8a] transition-colors px-8 py-6 text-base rounded-full">
+              Get to know us
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

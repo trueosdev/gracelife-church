@@ -31,7 +31,7 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2 relative">
-          <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
+          <Button variant="ghost" size="sm" className="text-[#F5F3EE] hover:bg-[#F5F3EE]/10">
             <Search className="w-4 h-4 mr-2" />
             Search
           </Button>
@@ -42,8 +42,8 @@ export function Header() {
               size="sm" 
               className={`text-black transition-colors ${
                 isMenuOpen 
-                  ? "bg-white/90 hover:bg-white" 
-                  : "bg-white hover:bg-white/20"
+                  ? "bg-[#F5F3EE]/90 hover:bg-[#F5F3EE]" 
+                  : "bg-[#F5F3EE] hover:bg-[#F5F3EE]/20"
               }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
@@ -64,7 +64,7 @@ export function Header() {
                 />
                 
                 {/* Dropdown */}
-                <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute right-0 top-full mt-2 w-56 bg-[#F5F3EE] rounded-lg shadow-xl border border-gray-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                   <nav className="py-2">
                     {menuItems.map((item) => (
                       <a

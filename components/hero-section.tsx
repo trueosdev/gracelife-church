@@ -11,7 +11,7 @@ export function HeroSection() {
 
       <div className="relative z-10 flex flex-col items-start justify-center min-h-screen max-w-7xl mx-auto px-6 py-20">
         <div className="max-w-3xl">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold text-[#F5F3EE] mb-8 leading-tight">
               Find grace.
               <br />
               Find truth.
@@ -25,7 +25,7 @@ export function HeroSection() {
           </h1>
 
           <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden lg:block">
-            <div className="text-white text-xs tracking-widest writing-mode-vertical rotate-180">
+            <div className="text-[#F5F3EE] text-xs tracking-widest writing-mode-vertical rotate-180">
               MULTIPLYING TRANSFORMATIONAL CHURCHES
             </div>
           </div>

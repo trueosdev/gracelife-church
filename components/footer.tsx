@@ -14,7 +14,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-[#2C4061] text-white">
+    <footer className="bg-[#2C4061] text-[#F5F3EE]">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Logo & Tagline */}
@@ -26,7 +26,7 @@ export function Footer() {
                 className="h-15 w-auto mb-4"
               />
             </Link>
-            <p className="text-white/80 text-sm text-center md:text-left">
+            <p className="text-[#F5F3EE]/80 text-sm text-center md:text-left">
               Find Grace · Find Truth · Find Life
             </p>
           </div>
@@ -39,7 +39,7 @@ export function Footer() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-white/80 hover:text-white transition-colors text-sm"
+                  className="text-[#F5F3EE]/80 hover:text-[#F5F3EE] transition-colors text-sm"
                 >
                   {link.label}
                 </a>
@@ -50,12 +50,12 @@ export function Footer() {
           {/* Contact Info */}
           <div className="flex flex-col items-center md:items-start">
             <h3 className="font-semibold text-lg mb-4">Visit Us</h3>
-            <address className="not-italic text-white/80 text-sm text-center md:text-left space-y-2">
+            <address className="not-italic text-[#F5F3EE]/80 text-sm text-center md:text-left space-y-2">
               <p>GraceLife Church</p>
               <p>1311 19th Ave SE</p>
               <p>Decatur, AL 35601</p>
               <p className="pt-2">
-                <span className="font-medium text-white">Sunday Service</span>
+                <span className="font-medium text-[#F5F3EE]">Sunday Service</span>
                 <br />
                 10:00 AM - 11:20 PM CST
               </p>
@@ -64,8 +64,8 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/20 mt-10 pt-6">
-          <p className="text-center text-white/60 text-sm">
+        <div className="border-t border-[#F5F3EE]/20 mt-10 pt-6">
+          <p className="text-center text-[#F5F3EE]/60 text-sm">
             © {currentYear} GraceLife Church. All rights reserved.
           </p>
         </div>

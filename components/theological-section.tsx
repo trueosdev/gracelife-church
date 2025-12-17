@@ -12,8 +12,8 @@ export function TheologicalSection() {
           </p>
           <div className="flex justify-end">
             <Link href="/about#distinctives">
-              <Button className="bg-[#2C4061] text-white hover:bg-[#4a7a8a] transition-colors px-8 py-6 text-base rounded-full">
-                Read More
+              <Button className="bg-[#2C4061] text-[#F5F3EE] hover:bg-[#4a7a8a] transition-colors px-8 py-6 text-base rounded-full">
+                What we believe
               </Button>
             </Link>
           </div>
@@ -21,7 +21,7 @@ export function TheologicalSection() {
 
         <div className="relative group overflow-hidden rounded-lg">
           <img src="/theology.webp" alt="Theological Distinctives" className="w-full h-auto transition-transform duration-300 group-hover:scale-105" />
-          <div className="absolute inset-0 bg-white/0 backdrop-blur-0 transition-all duration-300 group-hover:bg-white/10" />
+          <div className="absolute inset-0 bg-[#F5F3EE]/0 backdrop-blur-0 transition-all duration-300 group-hover:bg-[#F5F3EE]/10" />
         </div>
       </div>
     </section>

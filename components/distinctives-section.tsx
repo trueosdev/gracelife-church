@@ -43,7 +43,7 @@ export function DistinctivesSection() {
                   alt={distinctive.title}
                   className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" 
                 />
-                <div className="absolute inset-0 bg-white/0 transition-all duration-300 group-hover:bg-white/10" />
+                <div className="absolute inset-0 bg-[#F5F3EE]/0 transition-all duration-300 group-hover:bg-[#F5F3EE]/10" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-[#2C4061] mb-4">
                 {distinctive.title}
