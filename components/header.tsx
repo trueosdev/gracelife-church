@@ -9,7 +9,7 @@ const menuItems = [
   { label: "About", href: "/about" },
   { label: "Pastor's Pen", href: "#pastors-pen" },
   { label: "Calendar", href: "#calendar" },
-  { label: "Resources", href: "#resources" },
+  { label: "Resources", href: "/resources" },
   { label: "Contact", href: "#contact" },
   { label: "Give", href: "#give" },
 ]
@@ -66,16 +66,24 @@ export function Header() {
                 {/* Dropdown */}
                 <div className="absolute right-0 top-full mt-2 w-56 bg-[#F5F3EE] rounded-lg shadow-xl border border-gray-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                   <nav className="py-2">
-                    {menuItems.map((item) => (
-                      <a
-                        key={item.label}
-                        href={item.href}
-                        className="block px-4 py-3 text-gray-800 hover:bg-black/8.5 hover:text-black transition-colors font-medium"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.label}
-                      </a>
-                    ))}
+                    {menuItems.map((item) => {
+                      const isInternalLink = item.href.startsWith("/")
+                      const Component = isInternalLink ? Link : "a"
+                      const props = isInternalLink 
+                        ? { href: item.href }
+                        : { href: item.href }
+                      
+                      return (
+                        <Component
+                          key={item.label}
+                          {...props}
+                          className="block px-4 py-3 text-gray-800 hover:bg-black/8.5 hover:text-black transition-colors font-medium"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {item.label}
+                        </Component>
+                      )
+                    })}
                   </nav>
                 </div>
               </>

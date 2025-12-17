@@ -5,7 +5,7 @@ const quickLinks = [
   { label: "About", href: "/about" },
   { label: "Pastor's Pen", href: "#pastors-pen" },
   { label: "Calendar", href: "#calendar" },
-  { label: "Resources", href: "#resources" },
+  { label: "Resources", href: "/resources" },
   { label: "Contact", href: "#contact" },
   { label: "Give", href: "#give" },
 ]
@@ -35,15 +35,23 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-start">
             <h3 className="font-semibold text-lg mb-4">Navigation</h3>
             <nav className="flex flex-col gap-2">
-              {quickLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-[#F5F3EE]/80 hover:text-[#F5F3EE] transition-colors text-sm"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {quickLinks.map((link) => {
+                const isInternalLink = link.href.startsWith("/")
+                const Component = isInternalLink ? Link : "a"
+                const props = isInternalLink 
+                  ? { href: link.href }
+                  : { href: link.href }
+                
+                return (
+                  <Component
+                    key={link.label}
+                    {...props}
+                    className="text-[#F5F3EE]/80 hover:text-[#F5F3EE] transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Component>
+                )
+              })}
             </nav>
           </div>
 
