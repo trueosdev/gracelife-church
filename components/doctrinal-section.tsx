@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 
 export function DoctrinalSection() {
   return (
-    <section className="py-20 px-6 bg-[#F5F3EE]">
+    <section id="doctrinal-statement" className="py-20 px-6 bg-[#F5F3EE]">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div>
           <h2 className="text-4xl md:text-6xl font-bold text-[#2C4061] mb-8 leading-tight text-right">

@@ -19,9 +19,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <StaffSection />
       <DoctrinalSection />
       <DistinctivesSection />
+      <StaffSection />
       <Footer />
     </main>
   )

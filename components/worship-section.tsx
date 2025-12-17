@@ -40,7 +40,7 @@ export function WorshipSection() {
               style={{ fontFamily: '"BBH Bartle", sans-serif', fontWeight: 400 }}>WORSHIP</span>
             </h2>
           </div>
-          <div className="bg-[#F5F3EE] px-8 py-6 hover:bg-[#F5F3EE] transition-colors duration-500 relative z-10">
+          <div className="bg-[#F5F3EE] px-8 py-6 hover:bg-black/5 transition-colors duration-500 relative z-10">
             <p className="text-gray-800 text-xl leading-relaxed text-center">
               10:00 AM – 11:20 PM CST<br />
               GraceLife Church<br />

@@ -31,7 +31,7 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2 relative">
-          <Button variant="ghost" size="sm" className="text-[#F5F3EE] hover:bg-[#F5F3EE]/10">
+          <Button variant="ghost" size="sm" className="text-[#F5F3EE] hover:bg-black/5">
             <Search className="w-4 h-4 mr-2" />
             Search
           </Button>
@@ -42,8 +42,8 @@ export function Header() {
               size="sm" 
               className={`text-black transition-colors ${
                 isMenuOpen 
-                  ? "bg-[#F5F3EE]/90 hover:bg-[#F5F3EE]" 
-                  : "bg-[#F5F3EE] hover:bg-[#F5F3EE]/20"
+                  ? "bg-[#F5F3EE]/90 hover:bg-black/5" 
+                  : "bg-[#F5F3EE] hover:bg-black/5"
               }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
@@ -70,7 +70,7 @@ export function Header() {
                       <a
                         key={item.label}
                         href={item.href}
-                        className="block px-4 py-3 text-gray-800 hover:bg-gray-100 hover:text-black transition-colors font-medium"
+                        className="block px-4 py-3 text-gray-800 hover:bg-black/8.5 hover:text-black transition-colors font-medium"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.label}
