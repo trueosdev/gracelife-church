@@ -98,7 +98,7 @@ export default function ResourcesPage() {
             {resources.map((resource) => (
               <div
                 key={resource.id}
-                className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer"
+                className="bg-[#F8F6F3] rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer h-[280px] flex flex-col"
                 onClick={() => handleResourceClick(resource)}
               >
                 {resource.image && (
@@ -110,8 +110,8 @@ export default function ResourcesPage() {
                     />
                   </div>
                 )}
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
+                <div className="p-6 flex flex-col items-center text-center flex-grow justify-center">
+                  <div className="flex items-center justify-center gap-3 mb-4">
                     <div className="text-[#2C4061]">
                       {resource.icon}
                     </div>
@@ -122,7 +122,7 @@ export default function ResourcesPage() {
                   <p className="text-[#5D5D5D] leading-relaxed mb-4">
                     {resource.description}
                   </p>
-                  <div className="flex items-center text-[#2C4061] font-medium group-hover:underline">
+                  <div className="flex items-center justify-center text-[#2C4061] font-medium group-hover:underline">
                     {resource.pdfUrl ? (
                       <>
                         <FileText className="w-4 h-4 mr-2" />
