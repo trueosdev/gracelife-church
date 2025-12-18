@@ -21,7 +21,7 @@ export function HeroSection() {
             <img 
               src="/white-logoText.svg" 
               alt="GraceLife Church" 
-              className="h-12 sm:h-20 md:h-25 w-auto mt-4"/>
+              className="h-16 sm:h-20 md:h-28 w-auto mt-4"/>
           </h1>
 
           <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden lg:block">
