@@ -27,14 +27,14 @@ export function Header() {
             <img 
               src="/white-gracelife.svg" 
               alt="GraceLife Church" 
-              className="h-10 w-auto"
+              className="h-8 md:h-20 w-auto"
             />
           </Link>
         </div>
 
         <div className="flex items-center gap-2 relative">
-          {/* Social Icons */}
-          <div className="flex items-center gap-3 mr-2">
+          {/* Social Icons - Hidden on mobile */}
+          <div className="hidden md:flex items-center gap-3 mr-2">
             <a href="https://www.facebook.com/GraceLifeChurchDecatur/" target="_blank" rel="noopener noreferrer" className="text-[#F5F3EE] hover:opacity-80 transition-opacity" aria-label="Facebook">
               <svg
                 role="img"
@@ -82,8 +82,8 @@ export function Header() {
           </div>
 
           <Button variant="ghost" size="sm" className="text-[#F5F3EE] hover:bg-black/5">
-            <Search className="w-4 h-4 mr-2" />
-            Search
+            <Search className="w-4 h-4 md:mr-2" />
+            <span className="hidden md:inline">Search</span>
           </Button>
           
           <div className="relative">

@@ -16,18 +16,18 @@ export function Footer() {
 
   return (
     <footer className="bg-[#2C4061] text-[#F5F3EE]">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+      <div className="max-w-7xl mx-auto px-6 py-8 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 text-center md:text-left">
           {/* Logo & Tagline */}
           <div className="flex flex-col items-center md:items-start">
             <Link href="/">
               <img
                 src="/white-gracelife.svg"
                 alt="GraceLife Church"
-                className="h-15 w-auto mb-4"
+                className="h-12 md:h-15 w-auto mb-4"
               />
             </Link>
-            <p className="text-[#F5F3EE]/80 text-sm text-center md:text-left">
+            <p className="text-[#F5F3EE]/80 text-sm">
               Find Grace · Find Truth · Find Life
             </p>
           </div>
@@ -35,7 +35,7 @@ export function Footer() {
           {/* Navigation */}
           <div className="flex flex-col items-center md:items-start">
             <h3 className="font-semibold text-lg mb-4">Navigation</h3>
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-2 items-center md:items-start">
               {quickLinks.map((link) => {
                 const isInternalLink = link.href.startsWith("/")
                 const Component = isInternalLink ? Link : "a"

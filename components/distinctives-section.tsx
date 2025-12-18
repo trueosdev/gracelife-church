@@ -23,13 +23,13 @@ export function DistinctivesSection() {
   ]
 
   return (
-    <section id="distinctives" className="py-20 px-6 bg-[#F5F3EE]">
+    <section id="distinctives" className="py-12 md:py-20 px-6 bg-[#F5F3EE]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold text-[#2C4061] mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-6xl font-bold text-[#2C4061] mb-4">
             Our Distinctives
           </h2>
-          <p className="text-lg text-[#5D5D5D] max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-[#5D5D5D] max-w-2xl mx-auto">
             striving for a church consistent with the scripture.
           </p>
         </div>

@@ -13,10 +13,10 @@ export function StaffSection() {
   ]
 
   return (
-    <section id="staff" className="py-20 px-6 bg-[#F5F3EE]">
+    <section id="staff" className="py-12 md:py-20 px-6 bg-[#F5F3EE]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold text-[#2C4061] mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-6xl font-bold text-[#2C4061] mb-4">
             Our Team
           </h2>
         </div>

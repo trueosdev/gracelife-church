@@ -12,14 +12,14 @@ export function SubscribeSection() {
   }
 
   return (
-    <section className="py-20 px-6 bg-[#F5F3EE]">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#1a2a3a] mb-8">
+    <section className="py-12 md:py-20 px-6 bg-[#F5F3EE]">
+      <div className="max-w-3xl mx-auto text-center md:text-left">
+        <h2 className="text-2xl md:text-4xl font-bold text-[#1a2a3a] mb-8">
           Stay Connected
         </h2>
         
         <form onSubmit={handleSubmit}>
-          <label className="block text-lg text-[#1a2a3a] mb-3">
+          <label className="block text-base md:text-lg text-[#1a2a3a] mb-3">
             Enter your email here*
           </label>
           
@@ -29,12 +29,12 @@ export function SubscribeSection() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="flex-1 px-4 py-4 border-1 border-[#c2c1be] bg-[#F5F3EE] text-[#1a2a3a] text-lg focus:outline-none focus:ring-2 focus:ring-[#5a8a9a]"
+              className="flex-1 px-4 py-3 md:py-4 border-1 border-[#c2c1be] bg-[#F5F3EE] text-[#1a2a3a] text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-[#5a8a9a]"
               placeholder=""
             />
             <button
               type="submit"
-              className="px-8 py-4 bg-[#2C4061] rounded-full text-[#F5F3EE] text-lg font-medium hover:bg-[#4a7a8a] transition-colors"
+              className="px-8 py-3 md:py-4 bg-[#2C4061] rounded-full text-[#F5F3EE] text-base md:text-lg font-medium hover:bg-[#4a7a8a] transition-colors"
             >
               Subscribe
             </button>

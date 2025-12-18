@@ -10,7 +10,7 @@ export function WorshipSection() {
     >
       {/* Content wrapper with white background to mask areas outside text */}
       <div className="relative z-10 bg-[#F5F3EE]">
-        <div className="max-w-5xl mx-auto px-8 py-20">
+        <div className="max-w-5xl mx-auto px-6 md:px-8 py-12 md:py-20">
           <div className="relative z-10 mb-8">
             <Image
               src="/worshipsunday.png"
@@ -21,8 +21,8 @@ export function WorshipSection() {
               priority
             />
           </div>
-          <div className="bg-[#F5F3EE] px-8 py-6 hover:bg-black/5 transition-colors duration-500 relative z-10">
-            <p className="text-gray-800 text-xl leading-relaxed text-center">
+          <div className="bg-[#F5F3EE] px-4 md:px-8 py-6 hover:bg-black/5 transition-colors duration-500 relative z-10">
+            <p className="text-gray-800 text-lg md:text-xl leading-relaxed text-center">
               10:00 AM – 11:20 PM CST<br />
               GraceLife Church<br />
               1311 19th Ave SE<br />

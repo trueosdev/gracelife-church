@@ -89,23 +89,23 @@ export default function ResourcesPage() {
       <Header />
       
       {/* Hero Banner */}
-      <section className="relative pt-32 pb-20 px-6 bg-[#2C4061]">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold text-[#F5F3EE] mb-4">Resources</h1>
-          <p className="text-xl text-[#F5F3EE] max-w-2xl">
+      <section className="relative pt-24 md:pt-32 pb-12 md:pb-20 px-6 bg-[#2C4061]">
+        <div className="max-w-7xl mx-auto text-center md:text-left">
+          <h1 className="text-4xl md:text-7xl font-bold text-[#F5F3EE] mb-4">Resources</h1>
+          <p className="text-lg md:text-xl text-[#F5F3EE] max-w-2xl mx-auto md:mx-0">
             Check out resources from GraceLife Church
           </p>
         </div>
       </section>
 
       {/* Resources Grid */}
-      <section className="py-20 px-6 bg-[#F5F3EE]">
+      <section className="py-12 md:py-20 px-6 bg-[#F5F3EE]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {resources.map((resource) => (
               <div
                 key={resource.id}
-                className="bg-[#F8F6F3] rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer h-[280px] flex flex-col hover:-translate-y-1"
+                className="bg-[#F8F6F3] rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer h-auto min-h-[250px] md:h-[280px] flex flex-col hover:-translate-y-1"
                 onClick={() => handleResourceClick(resource)}
               >
                 {resource.image && (

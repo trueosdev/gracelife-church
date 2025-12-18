@@ -123,13 +123,13 @@ export default function StatementOfFaithPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 bg-[#2C4061]">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold text-[#F5F3EE] mb-12">
+      <section className="relative pt-24 md:pt-32 pb-12 md:pb-20 px-6 bg-[#2C4061]">
+        <div className="max-w-7xl mx-auto text-center md:text-left">
+          <h1 className="text-4xl md:text-7xl font-bold text-[#F5F3EE] mb-8 md:mb-12">
             Statement of Faith
           </h1>
             <div>
-              <p className="text-xl text-[#F5F3EE]/90 leading-relaxed">
+              <p className="text-lg md:text-xl text-[#F5F3EE]/90 leading-relaxed max-w-4xl mx-auto md:mx-0">
                 {introduction}
               </p>
           </div>
@@ -137,24 +137,24 @@ export default function StatementOfFaithPage() {
       </section>
 
       {/* Content Grid */}
-      <section className="py-20 px-6">
+      <section className="py-12 md:py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {statements.map((statement) => (
               <div 
                 key={statement.id}
-                className="bg-[#F8F6F3] p-8 rounded-2xl shadow-sm border border-[#2C4061]/5 flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className="bg-[#F8F6F3] p-6 md:p-8 rounded-2xl shadow-sm border border-[#2C4061]/5 flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="flex items-baseline gap-3 mb-4">
+                <div className="flex items-baseline gap-3 mb-4 justify-center md:justify-start">
                   <span className="text-sm font-bold text-[#2C4061]/40 font-mono">
                     {statement.id.toString().padStart(2, '0')}
                   </span>
-                  <h2 className="text-2xl font-bold text-[#2C4061]">
+                  <h2 className="text-xl md:text-2xl font-bold text-[#2C4061]">
                     {statement.title}
                   </h2>
                 </div>
                 
-                <p className="text-[#5D5D5D] leading-relaxed mb-6 flex-grow">
+                <p className="text-[#5D5D5D] leading-relaxed mb-6 flex-grow text-center md:text-left">
                   {statement.content}
                 </p>
 
