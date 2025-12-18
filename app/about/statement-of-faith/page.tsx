@@ -1,5 +1,6 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { RefTagger } from "@/components/ref-tagger"
 
 const statements = [
   {
@@ -118,6 +119,7 @@ const introduction = "The New Hampshire Confession of Faith stands as a signific
 export default function StatementOfFaithPage() {
   return (
     <main className="bg-[#F5F3EE] min-h-screen">
+      <RefTagger />
       <Header />
       
       {/* Hero Section */}
