@@ -143,7 +143,7 @@ export default function StatementOfFaithPage() {
             {statements.map((statement) => (
               <div 
                 key={statement.id}
-                className="bg-white p-8 rounded-2xl shadow-sm border border-[#2C4061]/5 flex flex-col hover:shadow-md transition-shadow duration-300"
+                className="bg-[#F8F6F3] p-8 rounded-2xl shadow-sm border border-[#2C4061]/5 flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="flex items-baseline gap-3 mb-4">
                   <span className="text-sm font-bold text-[#2C4061]/40 font-mono">

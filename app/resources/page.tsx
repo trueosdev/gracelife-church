@@ -105,7 +105,7 @@ export default function ResourcesPage() {
             {resources.map((resource) => (
               <div
                 key={resource.id}
-                className="bg-[#F8F6F3] rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group cursor-pointer h-[280px] flex flex-col"
+                className="bg-[#F8F6F3] rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer h-[280px] flex flex-col hover:-translate-y-1"
                 onClick={() => handleResourceClick(resource)}
               >
                 {resource.image && (
