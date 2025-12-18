@@ -3,8 +3,9 @@ import Link from "next/link"
 
 const quickLinks = [
   { label: "About", href: "/about" },
-  { label: "Pastor's Pen", href: "#pastors-pen" },
-  { label: "Calendar", href: "#calendar" },
+  { label: "Statement of Faith", href: "/about/statement-of-faith" },
+  { label: "Pastor's Pen", href: "https://accordingtoorder.substack.com/" },
+  { label: "Calendar", href: "/calendar" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
   { label: "Give", href: "#give" },
