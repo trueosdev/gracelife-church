@@ -36,7 +36,7 @@ export function SubscribeSection() {
               type="submit"
               className="px-8 py-4 bg-[#2C4061] rounded-full text-[#F5F3EE] text-lg font-medium hover:bg-[#4a7a8a] transition-colors"
             >
-              Subscribe Now
+              Subscribe
             </button>
           </div>
         </form>
