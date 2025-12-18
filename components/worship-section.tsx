@@ -8,18 +8,6 @@ export function WorshipSection() {
     <section 
       className="relative bg-[#F5F3EE]"
     >
-      {/* Fixed background wrapper - will be constrained by parent overflow if needed */}
-      <div 
-        className="fixed inset-0 -z-10"
-        style={{
-          backgroundImage: "url(/sunday.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-        }}
-        aria-hidden="true"
-      />
-
       {/* Content wrapper with white background to mask areas outside text */}
       <div className="relative z-10 bg-[#F5F3EE]">
         <div className="max-w-5xl mx-auto px-8 py-20">
