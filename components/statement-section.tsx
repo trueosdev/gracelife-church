@@ -17,7 +17,7 @@ export function StatementSection() {
           and more than believing the right things. The Christian life is a life transformed by the gospel,
           experienced in community, and lived out for the glory of God and the good of our neighbors.
           </p>
-          <Link href="/about#staff">
+          <Link href="/about">
             <Button className="bg-[#2C4061] text-[#F5F3EE] hover:bg-[#4a7a8a] transition-colors px-8 py-6 text-base rounded-full">
               Get to know us
             </Button>

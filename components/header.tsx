@@ -8,8 +8,8 @@ import { siFacebook, siYoutube, siApplepodcasts, siSpotify } from "simple-icons/
 
 const menuItems = [
   { label: "About", href: "/about" },
-  { label: "Pastor's Pen", href: "#pastors-pen" },
-  { label: "Calendar", href: "#calendar" },
+  { label: "Pastor's Pen", href: "https://accordingtoorder.substack.com/" },
+  { label: "Calendar", href: "/calendar" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
   { label: "Give", href: "https://gracelife-church-426203.churchcenter.com/giving" },

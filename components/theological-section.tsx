@@ -11,7 +11,7 @@ export function TheologicalSection() {
           Expository preaching. Biblical Community.<br />Kingdom Advancement. Soli Deo Gloria.
           </p>
           <div className="flex justify-end">
-            <Link href="/about">
+            <Link href="/about#distinctives">
               <Button className="bg-[#2C4061] text-[#F5F3EE] hover:bg-[#4a7a8a] transition-colors px-8 py-6 text-base rounded-full">
                 What we believe
               </Button>

@@ -20,8 +20,8 @@ export default function AboutPage() {
       </section>
 
       <DoctrinalSection />
-      <DistinctivesSection />
       <StaffSection />
+      <DistinctivesSection />
       <Footer />
     </main>
   )
