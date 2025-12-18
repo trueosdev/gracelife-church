@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { siGooglemaps, siApple } from "simple-icons"
+import Image from "next/image"
 
 export function WorshipSection() {
 
@@ -22,23 +23,15 @@ export function WorshipSection() {
       {/* Content wrapper with white background to mask areas outside text */}
       <div className="relative z-10 bg-[#F5F3EE]">
         <div className="max-w-5xl mx-auto px-8 py-20">
-          {/* Left: Heading */}
-          <div className="relative">
-            <h2 
-              className="text-5xl md:text-6xl font-bold leading-none text-center relative z-10"
-              style={{
-                backgroundImage: "url(/sunday.jpg)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              Sunday Morning<br />
-              <span className="text-7xl md:text-8xl"
-              style={{ fontFamily: '"BBH Bartle", sans-serif', fontWeight: 400 }}>WORSHIP</span>
-            </h2>
+          <div className="relative z-10 mb-8">
+            <Image
+              src="/worshipsunday.png"
+              alt="Sunday Morning Worship"
+              width={1200}
+              height={400}
+              className="w-full h-auto"
+              priority
+            />
           </div>
           <div className="bg-[#F5F3EE] px-8 py-6 hover:bg-black/5 transition-colors duration-500 relative z-10">
             <p className="text-gray-800 text-xl leading-relaxed text-center">
