@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 import dynamic from "next/dynamic"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { FileText, BookOpen, Users, MessageSquare, Download } from "lucide-react"
+import { FileText, BookOpen, Users, MessageSquare, Download, MessagesSquare, MessageCircleQuestion} from "lucide-react"
 
 // Dynamically import PdfModal with SSR disabled to avoid DOMMatrix issues
 const PdfModal = dynamic(() => import("@/components/pdf-modal").then((mod) => ({ default: mod.PdfModal })), {
@@ -38,7 +38,7 @@ export default function ResourcesPage() {
       id: "corporate-prayer",
       title: "Corporate Prayer",
       description: "Resource for praying during the corporate worship service at GraceLife Church.",
-      icon: <MessageSquare className="w-8 h-8" />,
+      icon: <MessagesSquare className="w-8 h-8" />,
       pdfUrl: "/resources/GL_Corporate_Prayer.pdf"
     },
     {
@@ -50,9 +50,9 @@ export default function ResourcesPage() {
     },
     {
       id: "prayer-examples",
-      title: "Examples and Tips for Prayer",
+      title: "Help with Prayer",
       description: "See short examples and helpful tips for praying in the corporate worship service.",
-      icon: <MessageSquare className="w-8 h-8" />,
+      icon: <MessageCircleQuestion className="w-8 h-8" />,
       pdfUrl: "/resources/GL_Examples_and_Tips_for_Prayer.pdf"
     },
     {
