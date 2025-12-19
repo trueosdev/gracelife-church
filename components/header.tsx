@@ -20,14 +20,14 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="absolute top-0 left-10 right-0 z-40 px-6 py-4">
+    <header className="absolute top-0 left-5 right-0 z-40 px-6 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <Link href="/">
             <img 
               src="/white-gracelife.svg" 
               alt="GraceLife Church" 
-              className="h-8 md:h-20 w-auto"
+              className="h-15 md:h-20 w-auto"
             />
           </Link>
         </div>
