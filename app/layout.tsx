@@ -34,6 +34,26 @@ export const metadata: Metadata = {
         type: "image/svg+xml",
       },
     ],
+    apple: "/apple-icon.png",
+  },
+  openGraph: {
+    title: "GraceLife Church, Decatur, AL",
+    description: "FIND GRACE - FIND TRUTH - FIND LIFE",
+    images: [
+      {
+        url: "/ogimage.png",
+        width: 1200,
+        height: 630,
+        alt: "GraceLife Church",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GraceLife Church, Decatur, AL",
+    description: "FIND GRACE - FIND TRUTH - FIND LIFE",
+    images: ["/ogimage.png"],
   },
 }
 
