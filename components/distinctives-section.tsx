@@ -30,7 +30,7 @@ export function DistinctivesSection() {
             Our Distinctives
           </h2>
           <p className="text-base md:text-lg text-[#5D5D5D] max-w-2xl mx-auto">
-            Striving for a church consistent with the scripture.
+            Striving for a church consistent with the Scriptures.
           </p>
         </div>
 
