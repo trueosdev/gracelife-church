@@ -114,6 +114,14 @@ export function SubscribeSection() {
           Stay Connected
         </h2>
         
+        <div className="flex justify-center mb-6">
+          <img 
+            src="/mail.svg" 
+            alt="Mail icon" 
+            className="w-auto h-35 md:w-auto md:h-35"
+          />
+        </div>
+        
         <button
           onClick={handleSubscribe}
           className="px-8 py-3 md:py-4 bg-[#2C4061] rounded-full text-[#F5F3EE] text-base md:text-lg font-medium hover:bg-[#4a7a8a] transition-colors"
