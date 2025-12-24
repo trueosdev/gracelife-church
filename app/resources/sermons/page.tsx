@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { PodcastFeed } from "@/components/podcast-feed"
 
 export default function SermonsPage() {
   return (
@@ -18,20 +19,10 @@ export default function SermonsPage() {
         </div>
       </section>
 
-      {/* Podcast Embed Section */}
+      {/* Podcast Feed Section */}
       <section className="py-20 px-6 bg-[#F5F3EE]">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-[#F8F6F3] rounded-lg shadow-md p-8 flex justify-center">
-            <iframe
-              allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
-              frameBorder="0"
-              height="450"
-              style={{ width: '100%', maxWidth: '1000px', overflow: 'hidden', borderRadius: '10px' }}
-              sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-              src="https://embed.podcasts.apple.com/us/podcast/gracelife-church-podcast/id1676514693"
-              title="GraceLife Church Podcast"
-            />
-          </div>
+          <PodcastFeed />
         </div>
       </section>
 
