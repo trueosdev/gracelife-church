@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Search, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { siFacebook, siYoutube, siRss, siSpotify } from "simple-icons/icons"
+import { siFacebook, siYoutube, siApplepodcasts, siSpotify } from "simple-icons/icons"
 
 const menuItems = [
   { label: "About", href: "/about" },
@@ -57,7 +57,7 @@ export function Header() {
                 <path d={siYoutube.path} />
               </svg>
             </a>
-            <a href="https://anchor.fm/s/cee61210/podcast/rss" target="_blank" rel="noopener noreferrer" className="text-[#F5F3EE] hover:opacity-80 transition-opacity" aria-label="Podcast RSS Feed">
+            <a href="https://podcasts.apple.com/us/podcast/gracelife-church-podcast/id1676514693" target="_blank" rel="noopener noreferrer" className="text-[#F5F3EE] hover:opacity-80 transition-opacity" aria-label="Apple Podcasts">
               <svg
                 role="img"
                 viewBox="0 0 24 24"
@@ -65,7 +65,7 @@ export function Header() {
                 className="w-5 h-5"
                 fill="currentColor"
               >
-                <path d={siRss.path} />
+                <path d={siApplepodcasts.path} />
               </svg>
             </a>
             <a href="https://open.spotify.com/show/5NAtfGfB9BEs5LCk1tnvd1?si=d46394a47b654587" target="_blank" rel="noopener noreferrer" className="text-[#F5F3EE] hover:opacity-80 transition-opacity" aria-label="Spotify">
