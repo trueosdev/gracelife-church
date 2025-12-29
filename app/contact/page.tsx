@@ -1,31 +1,8 @@
-"use client"
-
-import { useState } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { siFacebook, siYoutube, siSpotify } from "simple-icons/icons"
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    lastName: "",
-    email: "",
-    phone: "",
-    message: "",
-  })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
-    // You can add API call here to send the form data
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
 
   return (
     <main className="min-h-screen">
@@ -108,79 +85,19 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Contact Form */}
             <div className="w-full">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Top Row: Last Name, Email, Phone */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div>
-                    <label htmlFor="lastName" className="block text-[#F5F3EE] mb-2 text-sm font-medium">
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 bg-transparent border border-[#F5F3EE]/30 rounded text-[#F5F3EE] placeholder-[#F5F3EE]/50 focus:outline-none focus:border-[#F5F3EE] transition-colors"
-                      placeholder=""
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-[#F5F3EE] mb-2 text-sm font-medium">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 bg-transparent border border-[#F5F3EE]/30 rounded text-[#F5F3EE] placeholder-[#F5F3EE]/50 focus:outline-none focus:border-[#F5F3EE] transition-colors"
-                      placeholder=""
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-[#F5F3EE] mb-2 text-sm font-medium">
-                      Phone
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 bg-transparent border border-[#F5F3EE]/30 rounded text-[#F5F3EE] placeholder-[#F5F3EE]/50 focus:outline-none focus:border-[#F5F3EE] transition-colors"
-                      placeholder=""
-                    />
-                  </div>
-                </div>
-
-                {/* Message Field */}
-                <div>
-                  <label htmlFor="message" className="block text-[#F5F3EE] mb-2 text-sm font-medium">
-                    Type your message here...
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={6}
-                    className="w-full px-4 py-2 bg-transparent border border-[#F5F3EE]/30 rounded text-[#F5F3EE] placeholder-[#F5F3EE]/50 focus:outline-none focus:border-[#F5F3EE] transition-colors resize-none"
-                    placeholder=""
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <div className="flex justify-center">
-                  <button
-                    type="submit"
-                    className="px-8 py-3 bg-[#4A9B9C] text-[#F5F3EE] font-semibold rounded-lg hover:bg-[#3d8283] transition-colors"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </form>
+              <div className="w-full h-[400px] lg:h-[1062px] rounded-lg overflow-hidden border border-[#F5F3EE]/30">
+                <iframe
+                  src="https://docs.google.com/forms/d/e/1FAIpQLScW-Dfk8CKz3J66YofnvtVP4LNRnaSgfQdYgBOn-aBFlKIVOA/viewform?embedded=true"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  marginHeight={0}
+                  marginWidth={0}
+                  className="w-full h-full"
+                >
+                  Loading…
+                </iframe>
+              </div>
             </div>
 
             {/* Map */}
