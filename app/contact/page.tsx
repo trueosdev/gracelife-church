@@ -85,7 +85,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Contact Form */}
             <div className="w-full">
-              <div className="w-full h-[400px] lg:h-[1062px] rounded-lg overflow-hidden border border-[#F5F3EE]/30">
+              <div className="w-full h-[500px] lg:h-[600px] rounded-lg overflow-hidden border border-[#F5F3EE]/30">
                 <iframe
                   src="https://docs.google.com/forms/d/e/1FAIpQLScW-Dfk8CKz3J66YofnvtVP4LNRnaSgfQdYgBOn-aBFlKIVOA/viewform?embedded=true"
                   width="100%"
@@ -101,7 +101,7 @@ export default function ContactPage() {
             </div>
 
             {/* Map */}
-            <div className="w-full h-[400px] lg:h-full rounded-lg overflow-hidden border border-[#F5F3EE]/30">
+            <div className="w-full h-[500px] lg:h-[600px] rounded-lg overflow-hidden border border-[#F5F3EE]/30">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.692808463346!2d-86.96599732426048!3d34.586638672960376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88628694a0a2dacf%3A0x3fd9bd1418907de0!2sGraceLife%20Church!5e0!3m2!1sen!2sus!4v1766003662619!5m2!1sen!2sus"
                 width="100%"
