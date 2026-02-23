@@ -13,6 +13,7 @@ const menuItems = [
   { label: "Calendar", href: "/calendar" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
+  { label: "Merchandise", href: "https://gracelifedecatur.printful.me/" },
   { label: "Give", href: "https://gracelife-church-426203.churchcenter.com/giving" },
 ]
 

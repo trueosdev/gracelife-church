@@ -8,6 +8,7 @@ const quickLinks = [
   { label: "Calendar", href: "/calendar" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
+  { label: "Merchandise", href: "https://gracelifedecatur.printful.me/" },
   { label: "Give", href: "#give" },
 ]
 
