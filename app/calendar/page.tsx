@@ -1,5 +1,13 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+
+export const metadata: Metadata = {
+  title: "Calendar",
+  description:
+    "GraceLife Church events and gatherings in Decatur, AL — worship services, mid-week Bible study, and church life.",
+  alternates: { canonical: "/calendar" },
+}
 
 export default function CalendarPage() {
   return (

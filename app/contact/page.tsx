@@ -1,6 +1,14 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { siFacebook, siYoutube, siSpotify } from "simple-icons/icons"
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Visit GraceLife Church at 1311 19th Ave SE, Decatur, AL 35601. Phone, email, service times (Sunday 10:30 AM, Wednesday 6 PM), and ways to connect.",
+  alternates: { canonical: "/contact" },
+}
 
 export default function ContactPage() {
 

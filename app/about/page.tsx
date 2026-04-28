@@ -1,8 +1,16 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { DoctrinalSection } from "@/components/doctrinal-section"
 import { DistinctivesSection } from "@/components/distinctives-section"
 import { StaffSection } from "@/components/staff-section"
 import { Footer } from "@/components/footer"
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Meet GraceLife Church in Decatur, AL — our staff, doctrinal distinctives, and commitment to Gospel-centered, expository ministry in the Reformed Baptist tradition.",
+  alternates: { canonical: "/about" },
+}
 
 export default function AboutPage() {
   return (

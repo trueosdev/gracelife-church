@@ -1,6 +1,14 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { RefTagger } from "@/components/ref-tagger"
+
+export const metadata: Metadata = {
+  title: "Statement of Faith",
+  description:
+    "GraceLife Church affirms the New Hampshire Confession — biblical doctrine on Scripture, the Trinity, salvation by grace, the church, and last things. Decatur, AL.",
+  alternates: { canonical: "/about/statement-of-faith" },
+}
 
 const statements = [
   {

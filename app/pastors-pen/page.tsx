@@ -1,6 +1,14 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Construction } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: "Pastor's Pen",
+  description:
+    "Writing and resources from the pastors of GraceLife Church, Decatur AL — Gospel-centered shepherds in the Reformed Baptist tradition.",
+  alternates: { canonical: "/pastors-pen" },
+}
 
 export default function PastorsPenPage() {
   return (
