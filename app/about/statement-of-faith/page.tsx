@@ -6,7 +6,7 @@ import { RefTagger } from "@/components/ref-tagger"
 export const metadata: Metadata = {
   title: "Statement of Faith",
   description:
-    "GraceLife Church affirms the New Hampshire Confession — biblical doctrine on Scripture, the Trinity, salvation by grace, the church, and last things. Decatur, AL.",
+    "GraceLife Church is confessional Reformed Baptist: we affirm the New Hampshire Confession — Scripture, Trinity, gospel, church, ordinances, and last things. Decatur, AL.",
   alternates: { canonical: "/about/statement-of-faith" },
 }
 

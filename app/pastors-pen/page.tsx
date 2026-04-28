@@ -6,7 +6,7 @@ import { Construction } from "lucide-react"
 export const metadata: Metadata = {
   title: "Pastor's Pen",
   description:
-    "Writing and resources from the pastors of GraceLife Church, Decatur AL — Gospel-centered shepherds in the Reformed Baptist tradition.",
+    "Writing from GraceLife Church pastors, Decatur AL — confessional Reformed Baptist shepherds committed to the NH Confession and expository ministry.",
   alternates: { canonical: "/pastors-pen" },
 }
 

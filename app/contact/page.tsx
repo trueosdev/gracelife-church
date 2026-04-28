@@ -6,7 +6,7 @@ import { siFacebook, siYoutube, siSpotify } from "simple-icons/icons"
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Visit GraceLife Church at 1311 19th Ave SE, Decatur, AL 35601. Phone, email, service times (Sunday 10:30 AM, Wednesday 6 PM), and ways to connect.",
+    "Visit GraceLife Church — confessional Reformed Baptist — 1311 19th Ave SE, Decatur, AL 35601. Phone, email, Sunday 10:30 AM & Wednesday 6 PM study.",
   alternates: { canonical: "/contact" },
 }
 

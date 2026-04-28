@@ -4,7 +4,7 @@ import type React from "react"
 export const metadata: Metadata = {
   title: "Resources",
   description:
-    "Documents, guides, and materials from GraceLife Church in Decatur, AL — a Gospel-centered church committed to biblical teaching and the Reformed Baptist tradition.",
+    "Documents and guides from GraceLife Church, Decatur AL — a confessional Reformed Baptist church (New Hampshire Confession) committed to biblical teaching and church life.",
   alternates: { canonical: "/resources" },
 }
 

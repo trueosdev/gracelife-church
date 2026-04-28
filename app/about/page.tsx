@@ -8,7 +8,7 @@ import { Footer } from "@/components/footer"
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Meet GraceLife Church in Decatur, AL — our staff, doctrinal distinctives, and commitment to Gospel-centered, expository ministry in the Reformed Baptist tradition.",
+    "Meet GraceLife Church in Decatur, AL — a confessional Reformed Baptist congregation: staff, distinctives, New Hampshire Confession, and verse-by-verse expository ministry.",
   alternates: { canonical: "/about" },
 }
 

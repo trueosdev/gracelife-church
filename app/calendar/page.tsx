@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer"
 export const metadata: Metadata = {
   title: "Calendar",
   description:
-    "GraceLife Church events and gatherings in Decatur, AL — worship services, mid-week Bible study, and church life.",
+    "GraceLife Church calendar — confessional Reformed Baptist congregation in Decatur, AL: Lord's Day worship, mid-week Bible study, and church life.",
   alternates: { canonical: "/calendar" },
 }
 
