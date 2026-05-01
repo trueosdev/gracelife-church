@@ -3,13 +3,18 @@ export function StaffSection() {
     {
       name: "Parker Smith",
       role: "Lead Pastor",
-      image: "/parker.avif"
+      image: "/parker.avif",
     },
     {
       name: "Rickie Higgins",
       role: "Youth Minister",
-      image: "/rickie.avif"
-    }
+      image: "/rickie.avif",
+    },
+    {
+      name: "Jack Lyons",
+      role: "Worship Leader",
+      image: "/jack.jpg",
+    },
   ]
 
   return (
@@ -21,13 +26,13 @@ export function StaffSection() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          {staff.map((member, index) => (
-            <div key={index} className="text-center">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          {staff.map((member) => (
+            <div key={member.name} className="text-center">
               <div className="relative group overflow-hidden rounded-lg mb-6 aspect-square max-w-xs mx-auto">
                 <img 
                   src={member.image} 
-                  alt={member.name}
+                  alt={`${member.name}, ${member.role} at GraceLife Church`}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
                 />
                 <div className="absolute inset-0 bg-[#F5F3EE]/0 transition-all duration-300 group-hover:bg-[#F5F3EE]/10" />
