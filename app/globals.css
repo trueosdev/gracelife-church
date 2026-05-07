@@ -128,3 +128,46 @@
 .writing-mode-vertical {
   writing-mode: vertical-rl;
 }
+
+@keyframes holo-shift {
+  0% {
+    background-position: 0% 50%, 0% 0%;
+  }
+  100% {
+    background-position: 100% 50%, 100% 100%;
+  }
+}
+
+.holo-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.08) 14%,
+      rgba(255, 255, 255, 0.6) 32%,
+      rgba(255, 255, 255, 0.18) 48%,
+      rgba(255, 255, 255, 0.72) 66%,
+      rgba(255, 255, 255, 0.1) 84%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.26),
+      transparent 60%
+    );
+  background-size: 200% 200%, 140% 140%;
+  background-blend-mode: screen;
+  mix-blend-mode: overlay;
+}
+
+.group:hover .holo-overlay,
+.group:focus-visible .holo-overlay {
+  opacity: 0.3;
+  animation: holo-shift 3.5s ease-in-out infinite alternate;
+}
