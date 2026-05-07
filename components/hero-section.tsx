@@ -9,9 +9,8 @@ export function HeroSection() {
       className={`group relative block aspect-video overflow-hidden rounded-xl border border-[#F5F3EE]/30 bg-black/40 shadow-2xl transition-transform duration-300 ease-out hover:scale-105 ${extraClassName}`}
     >
       <iframe
-        className="pointer-events-none absolute left-0 w-full"
-        style={{ top: "-25%", height: "150%" }}
-        src="https://www.youtube-nocookie.com/embed/ldiYtoaFAS8?autoplay=1&mute=1&controls=0&loop=1&playlist=ldiYtoaFAS8&playsinline=1&rel=0&modestbranding=1&showinfo=0&disablekb=1&iv_load_policy=3&fs=0&color=white"
+        className="pointer-events-none absolute inset-0 h-full w-full"
+        src="https://www.youtube-nocookie.com/embed/ldiYtoaFAS8?autoplay=1&mute=1&controls=0&loop=1&playlist=ldiYtoaFAS8&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&fs=0&color=white"
         title="GraceLife Church video"
         allow="autoplay; encrypted-media; picture-in-picture"
         referrerPolicy="strict-origin-when-cross-origin"
@@ -47,16 +46,16 @@ export function HeroSection() {
               className="h-16 sm:h-20 md:h-28 w-auto mt-4"/>
           </h1>
 
-          <div className="mt-10 lg:hidden w-100%">
-            {videoLink("w-full")}
-          </div>
-
           <div className="absolute right-6 top-1/2 hidden -translate-y-1/2 items-center gap-6 lg:flex">
             {videoLink("w-auto xl:w-125")}
             <div className="text-[#F5F3EE] text-xs tracking-widest writing-mode-vertical rotate-180">
               MULTIPLYING TRANSFORMATIONAL CHURCHES
             </div>
           </div>
+        </div>
+
+        <div className="mt-10 mx-auto w-full max-w-2xl lg:hidden">
+          {videoLink("w-full")}
         </div>
       </div>
     </section>
