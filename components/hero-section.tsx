@@ -49,7 +49,7 @@ export function HeroSection() {
           <div className="absolute right-6 top-1/2 hidden -translate-y-1/2 items-center gap-6 lg:flex">
             {videoLink("w-auto xl:w-125")}
             <div className="text-[#F5F3EE] text-xs tracking-widest writing-mode-vertical rotate-180">
-              MULTIPLYING TRANSFORMATIONAL CHURCHES
+              ADVANCING THE GOSPEL FOR THE GLORY OF GOD
             </div>
           </div>
         </div>
