@@ -5,7 +5,7 @@ export function WorshipSection() {
 
   return (
     <section
-      className="relative overflow-hidden bg-cover bg-center bg-fixed"
+      className="relative overflow-hidden bg-cover bg-center bg-scroll md:bg-fixed"
       style={{ backgroundImage: "url('/sunday-morning.png')" }}
     >
       {/* Overlay to keep text readable */}
