@@ -129,6 +129,18 @@
   writing-mode: vertical-rl;
 }
 
+/* Hero heading reserved for "WORSHIP SUNDAY" only */
+.superXL {
+  font-size: clamp(2.75rem, 11vw, 8rem);
+  font-weight: 700;
+  line-height: 0.8;
+  font-family: var(--font-crimson), Georgia, serif;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
 @keyframes holo-shift {
   0% {
     background-position: 0% 50%, 0% 0%;

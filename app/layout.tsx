@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Montserrat, Montserrat_Alternates } from "next/font/google"
+import { Montserrat, Montserrat_Alternates, Crimson_Text } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import {
   churchJsonLd,
@@ -19,10 +19,16 @@ const montserrat = Montserrat({
   variable: "--font-montserrat"
 })
 
-const montserratAlternates = Montserrat_Alternates({ 
-  subsets: ["latin"], 
+const montserratAlternates = Montserrat_Alternates({
+  subsets: ["latin"],
   weight: ["500"],
   variable: "--font-montserrat-alt"
+})
+
+const crimsonText = Crimson_Text({
+  subsets: ["latin"],
+  weight: ["700"],
+  variable: "--font-crimson"
 })
 
 export const metadata: Metadata = {
@@ -90,7 +96,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap" rel="stylesheet" />
       </head>
-      <body className={`${montserrat.variable} ${montserratAlternates.variable} ${montserrat.className} antialiased`}>
+      <body className={`${montserrat.variable} ${montserratAlternates.variable} ${crimsonText.variable} ${montserrat.className} antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

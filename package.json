@@ -15,7 +15,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.454.0",
     "maplibre-gl": "^5.15.0",
-    "next": "^16.2.4",
+    "next": "^16.2.7",
     "pdfjs-dist": "^5.4.449",
     "react": "19.2.0",
     "react-dom": "19.2.0",
@@ -25,6 +25,7 @@
     "tailwind-merge": "^3.3.1"
   },
   "overrides": {
+    "postcss": "$postcss",
     "@types/react-pdf": {
       "dommatrix": "npm:@thednp/dommatrix@^2.0.0",
       "pdfjs-dist": "^5.4.449"
@@ -36,7 +37,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-pdf": "^5.0.7",
-    "postcss": "^8.5",
+    "postcss": "^8.5.10",
     "tailwindcss": "^4.1.9",
     "tw-animate-css": "1.3.3",
     "typescript": "^5"
