@@ -46,7 +46,7 @@ export default function WhatToExpectPage() {
               are before a holy God.
             </p>
             <p>
-              But we never leave you in your sin. The confession is always followed by the
+              Christ never leaves us in our sin. Because of this the confession of sin is always followed by the
               assurance of pardon, where we hear again that in Christ our sins are fully forgiven.
               This is the heart of the gospel. We are worse than we dare admit, and yet we are
               more loved than we ever dared hope, all because of Jesus.
