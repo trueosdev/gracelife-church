@@ -8,6 +8,7 @@ import { siFacebook, siYoutube, siApplepodcasts, siSpotify } from "simple-icons/
 
 const menuItems = [
   { label: "About", href: "/about" },
+  { label: "What to Expect", href: "/what-to-expect" },
   { label: "Statement of Faith", href: "/about/statement-of-faith" },
   { label: "Pastor's Pen", href: "https://accordingtoorder.substack.com/" },
   { label: "Calendar", href: "/calendar" },
