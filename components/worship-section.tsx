@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { siGooglemaps, siApple } from "simple-icons"
 
@@ -60,6 +61,13 @@ export function WorshipSection() {
                   </svg>
                 </a>
               </Button>
+            </div>
+            <div className="flex justify-center mt-6">
+              <Link href="/what-to-expect">
+                <Button className="bg-[#F5F3EE] text-[#2C4061] border border-[#2C4061] hover:bg-[#2C4061]/80 hover:text-[#F5F3EE] transition-colors px-8 py-6 text-base rounded-full">
+                  What to Expect
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
