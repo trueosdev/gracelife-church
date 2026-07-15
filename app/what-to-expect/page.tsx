@@ -170,7 +170,7 @@ export default function WhatToExpectPage() {
           </h3>
           <div className="space-y-6 text-lg text-[#F5F3EE]/90 leading-relaxed">
             <p>
-              First, we want you to hear this clearly:{" "}
+              First, we want you to hear this clearly:{" "}<br />
               <span className="text-xl md:text-2xl font-semibold text-[#F5F3EE]">
                 Relax. Your children are a blessing, not a burden.
               </span>
