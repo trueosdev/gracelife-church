@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 import dynamic from "next/dynamic"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { FileText, BookOpen, Users, MessageSquare, Download, MessagesSquare, MessageCircleQuestion} from "lucide-react"
+import { FileText, BookOpen, Users, MessageSquare, Download, MessagesSquare, MessageCircleQuestion, ShoppingBag, Baby} from "lucide-react"
 
 // Dynamically import PdfModal with SSR disabled to avoid DOMMatrix issues
 const PdfModal = dynamic(() => import("@/components/pdf-modal").then((mod) => ({ default: mod.PdfModal })), {
@@ -68,6 +68,20 @@ export default function ResourcesPage() {
       description: "See PDF of the process for potential Elder Candidates at GraceLife Church",
       icon: <Users className="w-8 h-8" />,
       pdfUrl: "/resources/GL_Elder_Training.pdf"
+    },
+    {
+      id: "childcare",
+      title: "Childcare",
+      description: "Learn about GraceLife Littles, our childcare ministry for your youngest children.",
+      icon: <Baby className="w-8 h-8" />,
+      externalUrl: "/what-to-expect#childcare",
+    },
+    {
+      id: "merch",
+      title: "Shirts and Pens",
+      description: "Grab some GraceLife Church apparel and accessories.",
+      icon: <ShoppingBag className="w-8 h-8" />,
+      externalUrl: "https://gracelifedecatur.printful.me/",
     },
   ]
 

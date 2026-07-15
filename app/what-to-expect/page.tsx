@@ -169,41 +169,105 @@ export default function WhatToExpectPage() {
             To Parents with Small Children
           </h3>
           <div className="space-y-6 text-lg text-[#F5F3EE]/90 leading-relaxed">
-            <p className="text-xl md:text-2xl font-semibold text-[#F5F3EE]">
-              Relax. Your children are a blessing, not a burden.
+            <p>
+              First, we want you to hear this clearly:{" "}
+              <span className="text-xl md:text-2xl font-semibold text-[#F5F3EE]">
+                Relax. Your children are a blessing, not a burden.
+              </span>
             </p>
             <p>
-              Sitting through a worship service may feel new to your kids, and that's okay.
-              Scripture shows us that children were present when the church gathered to worship
-              (Ephesians 6:1&ndash;3). Because of this, we don't want to separate children from
-              our gathering on the Lord's Day. We want to help them grow as followers of Christ
-              right alongside us, and one of the best ways we do that is by showing them how to
-              worship.
+              We understand that having children sit through an entire worship service can feel
+              daunting&mdash;and perhaps even unique by today's standards. Yet, when we examine
+              Scripture, we see that children were actively present when the church gathered for
+              worship (Ephesians 6:1&ndash;3).
             </p>
             <p>
-              So encourage your kids to sing when we sing and pray when we pray. Have them stand
-              when we stand, and help them find their place in the Bible when God's Word is read
-              and preached. We've put together a simple worship guide to help them follow along
-              throughout the service.
+              Because of this, we choose not to separate children from our gathering on the
+              Lord's Day. Instead, we want to champion their discipleship right alongside the
+              rest of the body.
+            </p>
+
+            <h4 className="text-xl md:text-2xl font-bold text-[#F5F3EE] pt-4">
+              Modeling Worship Together
+            </h4>
+            <p>
+              One of the most impactful ways we disciple our children is by modeling what worship
+              looks like in real-time. We invite you to actively help them participate:
+            </p>
+            <ul className="space-y-3 list-none">
+              <li className="pl-6 border-l-2 border-[#F5F3EE]/40">
+                <span className="font-semibold text-[#F5F3EE]">Sing &amp; Pray:</span>{" "}
+                Encourage your kids to sing when we sing and bow their heads when we pray.
+              </li>
+              <li className="pl-6 border-l-2 border-[#F5F3EE]/40">
+                <span className="font-semibold text-[#F5F3EE]">Engage with Scripture:</span>{" "}
+                Help them stand when we stand and find the passage in the Bible when the sermon
+                is preached.
+              </li>
+              <li className="pl-6 border-l-2 border-[#F5F3EE]/40">
+                <span className="font-semibold text-[#F5F3EE]">Use the Kids' Worship Guide:</span>{" "}
+                We provide a simple, kid-friendly worship guide at the welcome table each Sunday
+                to help them follow along and stay engaged.
+              </li>
+            </ul>
+
+            <h4 className="text-xl md:text-2xl font-bold text-[#F5F3EE] pt-4">
+              Grace for the &ldquo;Wiggles&rdquo;
+            </h4>
+            <p>
+              We know that sitting still for a 45-minute sermon is a big ask for little ones.
+              Please know that we expect a little noise and movement!
+            </p>
+            <ul className="space-y-3 list-none">
+              <li className="pl-6 border-l-2 border-[#F5F3EE]/40">
+                <span className="font-semibold text-[#F5F3EE]">It is okay to wiggle.</span>{" "}
+                If your child needs to shift around, that is perfectly fine.
+              </li>
+              <li className="pl-6 border-l-2 border-[#F5F3EE]/40">
+                <span className="font-semibold text-[#F5F3EE]">Teach in the moment.</span>{" "}
+                We encourage you to whisper simple instructions or quietly explain what is
+                happening during the service.
+              </li>
+              <li className="pl-6 border-l-2 border-[#F5F3EE]/40">
+                <span className="font-semibold text-[#F5F3EE]">Take a moment if needed.</span>{" "}
+                If you need to step out and walk to the foyer for a moment to reset, please feel
+                free.
+              </li>
+            </ul>
+
+            <h4 className="text-xl md:text-2xl font-bold text-[#F5F3EE] pt-4">
+              Our Nursery
+            </h4>
+            <p>
+              While we love having children in the service, we also want to support you. We have
+              a safe, loving nursery available for children ages 4 and under during the service,
+              and we encourage you to utilize it at any point if it would best serve your family!
+            </p>
+
+            <h4 className="text-xl md:text-2xl font-bold text-[#F5F3EE] pt-4">
+              Our Heart for Your Family
+            </h4>
+            <p>
+              Your children are not a distraction from our worship; their presence is a profound
+              encouragement to everyone around you. We consider it a great joy to watch them grow
+              in the Lord.
             </p>
             <p>
-              We know sitting still for a 45-minute sermon can feel like a lot. If your kids need
-              to wiggle, that's fine. If you need to step out to the foyer for a moment, please
-              feel free. And if you need to whisper a quiet instruction or explain what's
-              happening, go right ahead. Your children are never a distraction from our worship.
-              Their presence is an encouragement to the people around you, and we count it a joy
-              to watch them grow in the Lord.
+              Enjoy this vital season of parenting, knowing you have the full support, prayers,
+              and understanding of your GraceLife church family!
             </p>
-            <p>
-              So relax and enjoy the most important part of parenting: raising your children to
-              know and love the Lord. You have the full support and understanding of our church
-              family as you do.
-            </p>
-            <p className="border-l-2 border-[#F5F3EE]/40 pl-6 italic text-[#F5F3EE]/80">
-              And to the members of GraceLife: it is our responsibility and our privilege to
-              encourage the next generation to follow Christ (Psalm 78:4&ndash;8; 145:4&ndash;6).
-              That means welcoming our children into worship and helping them grow in their faith.
-            </p>
+
+            <div className="border-l-2 border-[#F5F3EE]/40 pl-6 italic text-[#F5F3EE]/80 space-y-3">
+              <p className="font-semibold not-italic text-[#F5F3EE]">
+                A Note to the Members of GraceLife Church
+              </p>
+              <p>
+                Let's consider it a privilege and a great responsibility to encourage the next
+                generation to follow Christ (Psalm 78:4&ndash;8; 145:4&ndash;6). This means
+                actively involving our children in our worship services, warmly extending grace
+                to young families, and partnering together to nurture their spiritual growth.
+              </p>
+            </div>
           </div>
         </div>
       </section>
