@@ -18,10 +18,14 @@ export default function AboutPage() {
       <Header />
       
       {/* Hero Banner */}
-      <section className="relative pt-32 pb-20 px-6 bg-[#2C4061]">
-        <div className="max-w-7xl mx-auto">
+      <section
+        className="relative pt-48 pb-32 px-6 bg-[#2C4061] bg-cover bg-[center_20%]"
+        style={{ backgroundImage: "url('/churchbuilding.png')" }}
+      >
+        <div className="absolute inset-0 bg-[#2C4061]/60" />
+        <div className="relative max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-[#F5F3EE] mb-4">About Us</h1>
-          <p className="text-xl text-[#F5F3EE] max-w-2xl">
+          <p className="text-xl text-[#F5F3EE] max-w-2xl mx-auto">
             Learn more about GraceLife Church — our beliefs, our mission, and our community.
           </p>
         </div>
