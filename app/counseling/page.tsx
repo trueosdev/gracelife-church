@@ -197,6 +197,21 @@ const process = [
 export default function CounselingPage() {
   const [selectedPdf, setSelectedPdf] = useState<{ url: string; title: string } | null>(null)
 
+  function openDocument(doc: CounselingDoc) {
+    // Mobile browsers don't reliably render a PDF inside an iframe (iOS Safari
+    // shows only the first page; some Android browsers show nothing), so hand
+    // small screens off to the browser's own PDF viewer instead of the modal.
+    const isSmallScreen =
+      typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches
+
+    if (isSmallScreen) {
+      window.open(doc.pdfUrl, "_blank", "noopener,noreferrer")
+      return
+    }
+
+    setSelectedPdf({ url: doc.pdfUrl, title: doc.title })
+  }
+
   return (
     <main>
       <Header />
@@ -228,7 +243,7 @@ export default function CounselingPage() {
         {/* Wash so body copy stays readable over the photo */}
         <div className="absolute inset-0 bg-[#F5F3EE]/75" aria-hidden="true" />
 
-        <div className="relative max-w-4xl mx-auto bg-[#F5F3EE]/90 backdrop-blur-sm rounded-3xl shadow-sm border border-[#2C4061]/10 p-8 md:p-12">
+        <div className="relative max-w-4xl mx-auto bg-[#F5F3EE]/90 backdrop-blur-sm rounded-3xl shadow-sm border border-[#2C4061]/10 p-6 sm:p-8 md:p-12">
           <h2 className="text-3xl md:text-6xl font-bold text-[#2C4061] mb-6">
             The Heart Behind It
           </h2>
@@ -271,7 +286,7 @@ export default function CounselingPage() {
       {/* What We're Committed To */}
       <section className="py-12 md:py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#2C4061] mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#2C4061] mb-8 md:mb-10">
             What We&rsquo;re Committed To
           </h2>
 
@@ -279,7 +294,7 @@ export default function CounselingPage() {
             {commitments.map((item) => (
               <div
                 key={item.title}
-                className="bg-[#F5F3EE] rounded-2xl p-8 border border-[#2C4061]/10"
+                className="bg-[#F5F3EE] rounded-2xl p-6 sm:p-8 border border-[#2C4061]/10"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-[#2C4061] flex-shrink-0">{item.icon}</span>
@@ -384,7 +399,7 @@ export default function CounselingPage() {
             {process.map((item) => (
               <div
                 key={item.step}
-                className="flex gap-6 items-start bg-[#F5F3EE]/5 rounded-2xl p-6 border border-[#F5F3EE]/15"
+                className="flex gap-4 sm:gap-6 items-start bg-[#F5F3EE]/5 rounded-2xl p-5 sm:p-6 border border-[#F5F3EE]/15"
               >
                 <span className="text-2xl md:text-3xl font-bold text-[#F5F3EE]/40 flex-shrink-0 leading-none pt-1">
                   {item.step}
@@ -413,7 +428,7 @@ export default function CounselingPage() {
         <div className="absolute inset-0 bg-[#F5F3EE]/40" aria-hidden="true" />
 
         <div className="relative max-w-5xl mx-auto grid gap-8 md:grid-cols-2">
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-[#2C4061]/10">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-[#2C4061]/10">
             <h3 className="text-2xl md:text-3xl font-bold text-[#2C4061] mb-4">Who It&rsquo;s For</h3>
             <div className="space-y-4 text-[#5D5D5D] leading-relaxed">
               <p>
@@ -433,7 +448,7 @@ export default function CounselingPage() {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-[#2C4061]/10">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-[#2C4061]/10">
             <h3 className="text-2xl md:text-3xl font-bold text-[#2C4061] mb-4">What It Costs</h3>
             <div className="space-y-4 text-[#5D5D5D] leading-relaxed">
               <p>
@@ -458,62 +473,49 @@ export default function CounselingPage() {
 
       {/* If You Are In Danger */}
       <section className="py-12 md:py-16 px-6 bg-white">
-        <div className="max-w-4xl mx-auto bg-[#A45E59]/8 border-l-4 border-[#A45E59] rounded-2xl p-8 md:p-10">
-          <div className="flex items-start gap-4">
-            <Phone className="w-7 h-7 text-[#A45E59] flex-shrink-0 mt-1" />
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2C4061] mb-4">
-                If You Are In Danger
-              </h2>
-              <p className="text-[#5D5D5D] leading-relaxed mb-6">
-                Counseling is not an emergency service. If you or someone you love is in immediate
-                danger, or is at risk of harming themselves or someone else, please call for help
-                right now. Then tell us, because we want to walk with you through it.
-              </p>
-              <ul className="space-y-3 text-[#5D5D5D]">
-                <li>
-                  <strong className="text-[#2C4061]">Emergency:</strong>{" "}
-                  <a href="tel:911" className="underline hover:text-[#2C4061] transition-colors">
-                    911
-                  </a>
-                </li>
-                <li>
-                  <strong className="text-[#2C4061]">
-                    Suicide &amp; Crisis Lifeline:
-                  </strong>{" "}
-                  <a href="tel:988" className="underline hover:text-[#2C4061] transition-colors">
-                    988
-                  </a>{" "}
-                  (call or text)
-                </li>
-                <li>
-                  <strong className="text-[#2C4061]">
-                    Alabama Domestic Violence Hotline:
-                  </strong>{" "}
-                  <a
-                    href="tel:18005001119"
-                    className="underline hover:text-[#2C4061] transition-colors"
-                  >
-                    1-800-500-1119
-                  </a>
-                </li>
-                <li>
-                  <strong className="text-[#2C4061]">Morgan County DHR:</strong>{" "}
-                  <a
-                    href="tel:12563018800"
-                    className="underline hover:text-[#2C4061] transition-colors"
-                  >
-                    (256) 301-8800
-                  </a>
-                </li>
-              </ul>
-              <p className="text-sm text-[#5D5D5D]/90 leading-relaxed mt-6">
-                We follow written protocols for domestic abuse, child abuse reporting,
-                and risk of harm to self or others, in keeping with Alabama law and our duty to
-                protect the vulnerable.
-              </p>
-            </div>
+        <div className="max-w-4xl mx-auto bg-[#A45E59]/8 border-l-4 border-[#A45E59] rounded-2xl p-6 sm:p-8 md:p-10">
+          <div className="flex items-start gap-3 mb-4">
+            <Phone className="w-7 h-7 text-[#A45E59] flex-shrink-0 mt-0.5" />
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2C4061]">
+              If You Are In Danger
+            </h2>
           </div>
+          <p className="text-[#5D5D5D] leading-relaxed mb-6">
+            Counseling is not an emergency service. If you or someone you love is in immediate
+            danger, or is at risk of harming themselves or someone else, please call for help
+            right now. Then tell us, because we want to walk with you through it.
+          </p>
+          {/* Each number is its own tappable row so it's easy to hit on a phone */}
+          <ul className="space-y-2">
+            {[
+              { label: "Emergency", number: "911", tel: "911" },
+              { label: "Suicide & Crisis Lifeline", number: "988", tel: "988", note: "call or text" },
+              {
+                label: "Alabama Domestic Violence Hotline",
+                number: "1-800-500-1119",
+                tel: "18005001119",
+              },
+              { label: "Morgan County DHR", number: "(256) 301-8800", tel: "12563018800" },
+            ].map((item) => (
+              <li key={item.label}>
+                <a
+                  href={`tel:${item.tel}`}
+                  className="flex flex-wrap items-baseline gap-x-2 gap-y-1 bg-white/60 rounded-lg px-4 py-3 hover:bg-white transition-colors"
+                >
+                  <span className="font-semibold text-[#2C4061]">{item.label}:</span>
+                  <span className="text-[#A45E59] font-semibold underline">{item.number}</span>
+                  {item.note && (
+                    <span className="text-sm text-[#5D5D5D]">({item.note})</span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="text-sm text-[#5D5D5D]/90 leading-relaxed mt-6">
+            We follow written protocols for domestic abuse, child abuse reporting,
+            and risk of harm to self or others, in keeping with Alabama law and our duty to
+            protect the vulnerable.
+          </p>
         </div>
       </section>
 
@@ -604,7 +606,7 @@ export default function CounselingPage() {
               <button
                 key={doc.id}
                 type="button"
-                onClick={() => setSelectedPdf({ url: doc.pdfUrl, title: doc.title })}
+                onClick={() => openDocument(doc)}
                 className="text-left bg-[#F5F3EE] rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col group hover:-translate-y-1 cursor-pointer"
               >
                 <FileText className="w-8 h-8 text-[#2C4061] mb-4" />
@@ -638,28 +640,30 @@ export default function CounselingPage() {
             You don&rsquo;t need to have it figured out or know how to explain it. Send us a note,
             and we&rsquo;ll go from there.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-[#2C4061] text-[#F5F3EE] px-8 py-4 rounded-lg font-medium hover:bg-[#2C4061]/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-[#2C4061] text-[#F5F3EE] px-6 sm:px-8 py-4 rounded-lg font-medium hover:bg-[#2C4061]/90 transition-colors"
             >
               Contact Us
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
               href="mailto:gracelifedecatur@gmail.com?subject=Biblical%20Counseling"
-              className="inline-flex items-center gap-2 border border-[#2C4061]/30 text-[#2C4061] px-8 py-4 rounded-lg font-medium hover:bg-[#2C4061]/5 transition-colors"
+              className="inline-flex items-center justify-center gap-2 border border-[#2C4061]/30 text-[#2C4061] px-6 sm:px-8 py-4 rounded-lg font-medium hover:bg-[#2C4061]/5 transition-colors break-all"
             >
               gracelifedecatur@gmail.com
             </a>
           </div>
-          <p className="text-[#5D5D5D] mt-8">
-            <a href="tel:12563553790" className="underline hover:text-[#2C4061] transition-colors">
+          <div className="text-[#5D5D5D] mt-6">
+            <a
+              href="tel:12563553790"
+              className="inline-block underline px-3 py-2 rounded-lg hover:text-[#2C4061] hover:bg-[#2C4061]/5 transition-colors"
+            >
               (256) 355-3790
             </a>
-            <br />
-            1311 19th Ave SE, Decatur, AL 35601
-          </p>
+            <p className="mt-1">1311 19th Ave SE, Decatur, AL 35601</p>
+          </div>
         </div>
       </section>
 
