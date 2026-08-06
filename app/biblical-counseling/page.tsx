@@ -91,8 +91,8 @@ const commitments = [
   },
   {
     icon: <CrossIcon className="w-7 h-7" />,
-    title: "Christ, Not Technique",
-    body: "We don't try to relate you to ourselves for healing, but to Jesus Christ. Lasting change comes from the Spirit's work through the gospel, not from a counselor's cleverness.",
+    title: "Christ, Not Therapy",
+    body: "Lasting change comes from the Spirit’s work through the Gospel, the renewing of our mind through the truth of scripture, not the counselor’s cleverness.",
   },
   {
     icon: <Church className="w-7 h-7" />,
@@ -102,7 +102,7 @@ const commitments = [
   {
     icon: <HandHeart className="w-7 h-7" />,
     title: "Honest About Real Life",
-    body: "Biblical counseling does not wave away hard things. Grief, abuse, depression, addiction, medication, and physical illness are taken seriously, understood carefully, and met with truth and compassion.",
+    body: "Biblical counseling does not wave away hard things. Grief, abuse, depression, addiction, medication, and physical illness are taken seriously, understood biblically, and met with truth and compassion.",
   },
 ]
 
