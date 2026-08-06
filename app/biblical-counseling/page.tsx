@@ -54,13 +54,6 @@ interface CounselingDoc {
 
 const documents: CounselingDoc[] = [
   {
-    id: "informed-consent",
-    title: "Informed Consent Agreement",
-    description:
-      "The agreement every counselee reads and signs before the first session. Covers our goal, our biblical basis, confidentiality and its limits, medication, fees, and arbitration.",
-    pdfUrl: "/counseling/GL_Informed_Consent_Agreement.pdf",
-  },
-  {
     id: "personal-data-inventory",
     title: "Personal Data Inventory",
     description:
@@ -68,11 +61,11 @@ const documents: CounselingDoc[] = [
     pdfUrl: "/counseling/GL_Personal_Data_Inventory.pdf",
   },
   {
-    id: "acbc-standards",
-    title: "ACBC Standards of Conduct",
+    id: "informed-consent",
+    title: "Informed Consent Agreement",
     description:
-      "The standards of conduct we are bound by: commitments to Scripture, to Christ, to care, to the church, to purity, to competency, and to integrity.",
-    pdfUrl: "/counseling/GL_ACBC_Standards_of_Conduct.pdf",
+      "The agreement every counselee reads and signs before the first session. Covers our goal, our biblical basis, confidentiality and its limits, medication, fees, and arbitration.",
+    pdfUrl: "/counseling/GL_Informed_Consent_Agreement.pdf",
   },
   {
     id: "advocate-agreement",
@@ -87,13 +80,6 @@ const documents: CounselingDoc[] = [
     description:
       "For counselors-in-training observing sessions as part of their certification. We are a training facility, so a trainee may sit in, always with your knowledge.",
     pdfUrl: "/counseling/GL_Counseling_Trainee_Observer_Agreement.pdf",
-  },
-  {
-    id: "conclusion-of-counseling",
-    title: "Conclusion of Counseling",
-    description:
-      "The form we ask counselees to complete when counseling concludes, so we can keep serving you well and keep improving how we care for others.",
-    pdfUrl: "/counseling/GL_Conclusion_of_Counseling.pdf",
   },
 ]
 
@@ -219,9 +205,6 @@ export default function CounselingPage() {
       {/* Hero Banner */}
       <section className="relative pt-24 md:pt-32 pb-12 md:pb-20 px-6 bg-[#2C4061]">
         <div className="max-w-7xl mx-auto">
-          <p className="text-sm md:text-base uppercase tracking-[0.2em] text-[#F5F3EE]/60 mb-4">
-            GraceLife Counseling
-          </p>
           <h1 className="text-4xl md:text-7xl font-bold text-[#F5F3EE] mb-6">
             Biblical Counseling
           </h1>
@@ -519,8 +502,8 @@ export default function CounselingPage() {
         </div>
       </section>
 
-      {/* The Fine Print */}
-      <section id="fine-print" className="relative py-12 md:py-20 px-6 bg-[#2C4061]">
+      {/* The Documents */}
+      <section id="documents" className="relative py-12 md:py-20 px-6 bg-[#2C4061]">
         {/* Background photo */}
         <div
           className="absolute inset-0 bg-cover bg-center md:bg-fixed"
@@ -531,77 +514,9 @@ export default function CounselingPage() {
         <div className="absolute inset-0 bg-[#2C4061]/88" aria-hidden="true" />
 
         <div className="relative max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-6xl font-bold text-[#F5F3EE] mb-4">The Fine Print</h2>
-          <p className="text-lg text-[#F5F3EE]/80 leading-relaxed max-w-3xl mb-12">
-            We&rsquo;d rather you know exactly what you&rsquo;re walking into. Every document below
-            is one you may be asked to read or sign, and you&rsquo;re welcome to read all of them
-            before you ever contact us.
-          </p>
+          <h2 className="text-3xl md:text-6xl font-bold text-[#F5F3EE] mb-4">The Documents</h2>
 
-          {/* Key terms */}
-          <div className="grid gap-6 md:grid-cols-2 mb-14">
-            <div className="bg-[#F5F3EE]/5 rounded-2xl p-6 border border-[#F5F3EE]/15">
-              <h3 className="text-xl font-bold text-[#F5F3EE] mb-3">Confidentiality</h3>
-              <p className="text-[#F5F3EE]/80 leading-relaxed mb-3">
-                We carefully guard what you entrust to us. There are limits, and we state them up
-                front. A counselor may share information when:
-              </p>
-              <ul className="space-y-2 text-[#F5F3EE]/80 text-sm leading-relaxed list-disc pl-5">
-                <li>They need advice from another pastor or counselor.</li>
-                <li>Someone may be harmed unless others intervene.</li>
-                <li>Abuse or another crime may have occurred.</li>
-                <li>
-                  A person refuses to renounce sin and the church&rsquo;s help is needed
-                  (Matthew&nbsp;18:15&ndash;20).
-                </li>
-                <li>Observers sit in for training purposes.</li>
-                <li>Your pastor or church leadership is needed to provide pastoral assistance.</li>
-                <li>The counselor is legally required to testify or provide information.</li>
-              </ul>
-            </div>
-
-            <div className="bg-[#F5F3EE]/5 rounded-2xl p-6 border border-[#F5F3EE]/15">
-              <h3 className="text-xl font-bold text-[#F5F3EE] mb-3">Not Licensed Care</h3>
-              <p className="text-[#F5F3EE]/80 leading-relaxed">
-                We are ministers of the gospel, not licensed psychotherapists, mental
-                health professionals, or health care providers. Our counsel stems from sincerely
-                held religious beliefs based on the Bible, and is part of our practice of religion.
-                We are not constrained by the ethical guidelines associated with a state or
-                national license, and we do not follow the theories and models of traditional
-                psychology.
-              </p>
-            </div>
-
-            <div className="bg-[#F5F3EE]/5 rounded-2xl p-6 border border-[#F5F3EE]/15">
-              <h3 className="text-xl font-bold text-[#F5F3EE] mb-3">Medication</h3>
-              <p className="text-[#F5F3EE]/80 leading-relaxed">
-                We affirm the use of medication for physical problems, and we do not offer medical
-                advice, including advice about withdrawing from medications. We may ask
-                questions about side effects, or about whether a medication has taken the place of
-                the Lord as your refuge. We will always encourage you to consult a competent
-                medical professional before changing or discontinuing anything.
-              </p>
-            </div>
-
-            <div className="bg-[#F5F3EE]/5 rounded-2xl p-6 border border-[#F5F3EE]/15">
-              <h3 className="text-xl font-bold text-[#F5F3EE] mb-3">
-                Resolution of Conflicts
-              </h3>
-              <p className="text-[#F5F3EE]/80 leading-relaxed">
-                On rare occasions a conflict may develop between a counselor and a counselee. So
-                that such conflicts are resolved in a biblically faithful manner, we ask all
-                counselees to agree that any dispute arising from counseling be settled by
-                mediation and, if necessary, legally binding arbitration under the rules of
-                Christian conciliation by a mutually agreed-upon neutral party. By agreeing in
-                advance to arbitrate, a counselee gives up the right to a trial in the civil
-                courts.
-              </p>
-            </div>
-          </div>
-
-          {/* Documents */}
-          <h3 className="text-2xl md:text-3xl font-bold text-[#F5F3EE] mb-8">The Documents</h3>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2">
             {documents.map((doc) => (
               <button
                 key={doc.id}
@@ -649,10 +564,10 @@ export default function CounselingPage() {
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="mailto:gracelifedecatur@gmail.com?subject=Biblical%20Counseling"
+              href="mailto:Parker@gracelifedecatur.org?subject=Biblical%20Counseling"
               className="inline-flex items-center justify-center gap-2 border border-[#2C4061]/30 text-[#2C4061] px-6 sm:px-8 py-4 rounded-lg font-medium hover:bg-[#2C4061]/5 transition-colors break-all"
             >
-              gracelifedecatur@gmail.com
+              Parker@gracelifedecatur.org
             </a>
           </div>
           <div className="text-[#5D5D5D] mt-6">

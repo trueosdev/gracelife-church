@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Search, Menu, X } from "lucide-react"
+import { Search, Menu, X, HandHeart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { siFacebook, siYoutube, siApplepodcasts, siSpotify } from "simple-icons/icons"
 
@@ -25,9 +25,9 @@ export function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <Link href="/">
-            <img 
-              src="/white-gracelife.svg" 
-              alt="GraceLife Church" 
+            <img
+              src="/white-gracelife.svg"
+              alt="GraceLife Church"
               className="h-15 md:h-20 w-auto"
             />
           </Link>
@@ -82,18 +82,24 @@ export function Header() {
             </a>
           </div>
 
+          <Button asChild variant="ghost" size="sm" className="text-[#F5F3EE] hover:bg-black/5">
+            <Link href="/biblical-counseling">
+              <span className="hidden md:inline">Biblical Counseling</span>
+            </Link>
+          </Button>
+
           <Button variant="ghost" size="sm" className="text-[#F5F3EE] hover:bg-black/5">
             <Search className="w-4 h-4 md:mr-2" />
             <span className="hidden md:inline">Search</span>
           </Button>
-          
+
           <div className="relative">
-            <Button 
-              variant="outline" 
-              size="sm" 
+            <Button
+              variant="outline"
+              size="sm"
               className={`text-black transition-colors ${
-                isMenuOpen 
-                  ? "bg-[#F5F3EE]/90 hover:bg-black/5" 
+                isMenuOpen
+                  ? "bg-[#F5F3EE]/90 hover:bg-black/5"
                   : "bg-[#F5F3EE] hover:bg-black/5"
               }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -109,21 +115,21 @@ export function Header() {
             {isMenuOpen && (
               <>
                 {/* Backdrop */}
-                <div 
-                  className="fixed inset-0 z-40" 
+                <div
+                  className="fixed inset-0 z-40"
                   onClick={() => setIsMenuOpen(false)}
                 />
-                
+
                 {/* Dropdown */}
                 <div className="absolute right-0 top-full mt-2 w-56 bg-[#F5F3EE] rounded-lg shadow-xl border border-gray-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                   <nav className="py-2">
                     {menuItems.map((item) => {
                       const isInternalLink = item.href.startsWith("/")
                       const Component = isInternalLink ? Link : "a"
-                      const props = isInternalLink 
+                      const props = isInternalLink
                         ? { href: item.href }
                         : { href: item.href }
-                      
+
                       return (
                         <Component
                           key={item.label}
