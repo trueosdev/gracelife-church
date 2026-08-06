@@ -92,7 +92,7 @@ const commitments = [
   {
     icon: <CrossIcon className="w-7 h-7" />,
     title: "Christ, Not Therapy",
-    body: "Lasting change comes from the Spirit’s work through the Gospel, the renewing of our mind through the truth of scripture, not the counselor’s cleverness.",
+    body: "We don’t try to relate you to ourselves for healing, but to Jesus Christ. Lasting change comes from the Spirit’s work through the Gospel, the renewing of our mind through the truth of scripture, not the counselor’s cleverness.",
   },
   {
     icon: <Church className="w-7 h-7" />,
@@ -441,9 +441,9 @@ export default function CounselingPage() {
               </p>
               <p>
                 For those who remain members or attenders of another church, a suggested{" "}
-                <strong className="text-[#2C4061]">$60 per session</strong> helps offset facility
-                and administrative costs. Payments go directly to GraceLife Church and are not
-                tax-deductible.
+                <strong className="text-[#2C4061]">donation of $60 per session</strong> helps
+                offset facility and administrative costs. Donations go directly to GraceLife
+                Church and are not tax-deductible.
               </p>
               <p className="text-[#2C4061] font-medium">
                 Financial hardship options are available on request. No one is turned away because
