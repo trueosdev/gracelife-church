@@ -6,13 +6,15 @@ import { Search, Menu, X, HandHeart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { siFacebook, siYoutube, siApplepodcasts, siSpotify } from "simple-icons/icons"
 
-const menuItems = [
+const menuItems: { label: string; href: string; mobileOnly?: boolean }[] = [
   { label: "About", href: "/about" },
   { label: "What to Expect", href: "/what-to-expect" },
   { label: "Statement of Faith", href: "/about/statement-of-faith" },
   { label: "Pastor's Pen", href: "https://accordingtoorder.substack.com/" },
   { label: "Calendar", href: "/calendar" },
   { label: "Resources", href: "/resources" },
+  // Shown only on mobile, where the header button is hidden for space
+  { label: "Biblical Counseling", href: "/biblical-counseling", mobileOnly: true },
   { label: "Contact", href: "/contact" },
   { label: "Give", href: "https://gracelife-church-426203.churchcenter.com/giving" },
 ]
@@ -82,10 +84,8 @@ export function Header() {
             </a>
           </div>
 
-          <Button asChild variant="ghost" size="sm" className="text-[#F5F3EE] hover:bg-black/5">
-            <Link href="/biblical-counseling">
-              <span className="hidden md:inline">Biblical Counseling</span>
-            </Link>
+          <Button asChild variant="ghost" size="sm" className="hidden md:inline-flex text-[#F5F3EE] hover:bg-black/5">
+            <Link href="/biblical-counseling">Biblical Counseling</Link>
           </Button>
 
           <Button variant="ghost" size="sm" className="text-[#F5F3EE] hover:bg-black/5">
@@ -134,7 +134,7 @@ export function Header() {
                         <Component
                           key={item.label}
                           {...props}
-                          className="block px-4 py-3 text-gray-800 hover:bg-black/8.5 hover:text-black transition-colors font-medium"
+                          className={`${item.mobileOnly ? "block md:hidden" : "block"} px-4 py-3 text-gray-800 hover:bg-black/8.5 hover:text-black transition-colors font-medium`}
                           onClick={() => setIsMenuOpen(false)}
                         >
                           {item.label}

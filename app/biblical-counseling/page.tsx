@@ -5,6 +5,7 @@ import Link from "next/link"
 import dynamic from "next/dynamic"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { RefTagger } from "@/components/ref-tagger"
 import {
   BookOpen,
   Users,
@@ -16,6 +17,7 @@ import {
   Church,
   Check,
   X,
+  ClipboardList,
 } from "lucide-react"
 
 /**
@@ -39,6 +41,51 @@ function CrossIcon({ className }: { className?: string }) {
   )
 }
 
+/**
+ * Pull quote for Scripture. `tone` picks the palette for the section it sits in;
+ * the centered variant drops the rule, since a left border reads as off-axis in
+ * a centered block.
+ */
+function Scripture({
+  reference,
+  tone = "onLight",
+  align = "left",
+  className = "",
+  children,
+}: {
+  reference: string
+  tone?: "onLight" | "onDark"
+  align?: "left" | "center"
+  className?: string
+  children: React.ReactNode
+}) {
+  const dark = tone === "onDark"
+  const centered = align === "center"
+
+  return (
+    <figure
+      className={[
+        centered ? "text-center" : "border-l-2 pl-5 sm:pl-6",
+        centered ? "" : dark ? "border-[#F5F3EE]/40" : "border-[#629E82]",
+        className,
+      ].join(" ")}
+    >
+      <blockquote
+        className={`italic leading-relaxed ${dark ? "text-[#F5F3EE]/85" : "text-[#5D5D5D]"}`}
+      >
+        &ldquo;{children}&rdquo;
+      </blockquote>
+      <figcaption
+        className={`mt-2 text-sm font-semibold tracking-wide ${
+          dark ? "text-[#F5F3EE]/60" : "text-[#2C4061]/70"
+        }`}
+      >
+        {reference}
+      </figcaption>
+    </figure>
+  )
+}
+
 // Dynamically import PdfModal with SSR disabled to avoid DOMMatrix issues
 const PdfModal = dynamic(
   () => import("@/components/pdf-modal").then((mod) => ({ default: mod.PdfModal })),
@@ -51,6 +98,8 @@ interface CounselingDoc {
   description: string
   pdfUrl: string
 }
+
+const INTAKE_FORM_URL = "https://form.jotform.com/gracelifedecatur/gracelife-biblical-counseling"
 
 const documents: CounselingDoc[] = [
   {
@@ -88,21 +137,31 @@ const commitments = [
     icon: <BookOpen className="w-7 h-7" />,
     title: "Scripture Is Sufficient",
     body: "God's Word is not a supplement to real help. It is the help. Scripture speaks to the exact struggles people bring into a counseling room, and it is living and active enough to reach the heart.",
+    verse:
+      "All Scripture is breathed out by God and profitable for teaching, for reproof, for correction, and for training in righteousness, that the man of God may be complete, equipped for every good work.",
+    reference: "2 Timothy 3:16-17",
   },
   {
     icon: <CrossIcon className="w-7 h-7" />,
     title: "Christ, Not Therapy",
     body: "We don’t try to relate you to ourselves for healing, but to Jesus Christ. Lasting change comes from the Spirit’s work through the Gospel, the renewing of our mind through the truth of scripture, not the counselor’s cleverness.",
+    verse:
+      "Do not be conformed to this world, but be transformed by the renewal of your mind.",
+    reference: "Romans 12:2",
   },
   {
     icon: <Church className="w-7 h-7" />,
     title: "Care Within the Church",
     body: "You were never meant to change alone. Counseling here is tied to the life of a local congregation: preaching, prayer, ordinary friendship, and the people who will still be there when counseling ends.",
+    verse: "Bear one another's burdens, and so fulfill the law of Christ.",
+    reference: "Galatians 6:2",
   },
   {
     icon: <HandHeart className="w-7 h-7" />,
     title: "Honest About Real Life",
     body: "Biblical counseling does not wave away hard things. Grief, abuse, depression, addiction, medication, and physical illness are taken seriously, understood biblically, and met with truth and compassion.",
+    verse: "Rejoice with those who rejoice, weep with those who weep.",
+    reference: "Romans 12:15",
   },
 ]
 
@@ -161,7 +220,7 @@ const process = [
   {
     step: "02",
     title: "Personal Data Inventory",
-    body: "We'll send you an intake form to complete before your first session. It helps your counselor understand your history and your situation before you sit down.",
+    body: "You'll fill out our intake form before your first session. It helps your counselor understand your history and your situation before you sit down.",
   },
   {
     step: "03",
@@ -200,18 +259,31 @@ export default function CounselingPage() {
 
   return (
     <main>
+      {/* Turns the Scripture references below into hover-to-read ESV links */}
+      <RefTagger />
       <Header />
 
       {/* Hero Banner */}
       <section className="relative pt-24 md:pt-32 pb-12 md:pb-20 px-6 bg-[#2C4061]">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-7xl font-bold text-[#F5F3EE] mb-6">
-            Biblical Counseling
-          </h1>
-          <p className="text-lg md:text-xl text-[#F5F3EE]/90 max-w-3xl leading-relaxed">
-            Real help for real trouble, from the God who speaks. Counseling at GraceLife is the
-            ordinary care of the church, offered patiently, personally, and out of the Scriptures.
-          </p>
+          <h1 className="sr-only">GraceLife Biblical Counseling</h1>
+          {/* The logo art is a single navy color, so it would disappear against this
+              navy banner. Paint it as a mask instead to render the same file in cream. */}
+          <div
+            role="img"
+            aria-label="GraceLife Biblical Counseling — Come to me, all who labor and are heavy laden, and I will give you rest. Matthew 11:28"
+            className="w-full max-w-3xl mx-auto aspect-[3643/1223] bg-[#F5F3EE]"
+            style={{
+              WebkitMaskImage: "url('/counseling/biblical-counseling-logo.svg')",
+              maskImage: "url('/counseling/biblical-counseling-logo.svg')",
+              WebkitMaskRepeat: "no-repeat",
+              maskRepeat: "no-repeat",
+              WebkitMaskPosition: "center",
+              maskPosition: "center",
+              WebkitMaskSize: "contain",
+              maskSize: "contain",
+            }}
+          />
         </div>
       </section>
 
@@ -237,6 +309,12 @@ export default function CounselingPage() {
               grip, and old sin patterns prove far more stubborn than we expected. Sooner or
               later, most of us need someone to sit down with us and help.
             </p>
+
+            <Scripture reference="Psalm 34:18">
+              The <span className="uppercase text-[0.85em] tracking-wide">Lord</span> is near to the
+              brokenhearted and saves the crushed in spirit.
+            </Scripture>
+
             <p>
               We believe God has not left His people without that help. He has given us His Word,
               His Spirit, and His church. Biblical counseling is simply the conviction that these
@@ -262,6 +340,12 @@ export default function CounselingPage() {
               You are worse off than you dare admit, and more loved than you ever dared hope. That
               is the ground every counseling conversation here stands on.
             </p>
+
+            <Scripture reference="Matthew 11:28-30">
+              Come to me, all who labor and are heavy laden, and I will give you rest. Take my yoke
+              upon you, and learn from me, for I am gentle and lowly in heart, and you will find
+              rest for your souls. For my yoke is easy, and my burden is light.
+            </Scripture>
           </div>
         </div>
       </section>
@@ -286,6 +370,12 @@ export default function CounselingPage() {
                   </h3>
                 </div>
                 <p className="text-[#5D5D5D] leading-relaxed">{item.body}</p>
+                <p className="mt-4 pt-4 border-t border-[#2C4061]/10 text-sm italic text-[#5D5D5D] leading-relaxed">
+                  &ldquo;{item.verse}&rdquo;{" "}
+                  <span className="not-italic font-semibold text-[#2C4061]/70">
+                    {item.reference}
+                  </span>
+                </p>
               </div>
             ))}
           </div>
@@ -304,9 +394,17 @@ export default function CounselingPage() {
         <div className="absolute inset-0 bg-[#F5F3EE]/80" aria-hidden="true" />
 
         <div className="relative max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#2C4061] mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#2C4061] mb-6">
             What Counseling Here Is, and What It Isn&rsquo;t
           </h2>
+
+          <Scripture
+            reference="Colossians 3:16"
+            className="mb-12 max-w-3xl bg-[#F5F3EE]/85 backdrop-blur-sm rounded-r-2xl py-4 pr-6"
+          >
+            Let the word of Christ dwell in you richly, teaching and admonishing one another in all
+            wisdom.
+          </Scripture>
 
           <div className="grid gap-6 md:gap-8 md:grid-cols-2">
             {/* What It Is */}
@@ -373,10 +471,14 @@ export default function CounselingPage() {
       <section className="py-12 md:py-20 px-6 bg-[#2C4061]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-[#F5F3EE] mb-4">How It Works</h2>
-          <p className="text-lg text-[#F5F3EE]/80 leading-relaxed mb-12 max-w-2xl">
+          <p className="text-lg text-[#F5F3EE]/80 leading-relaxed mb-8 max-w-2xl">
             Nothing about the process is meant to be mysterious. Here is what to expect from the
             first email to the last session.
           </p>
+
+          <Scripture reference="James 1:22" tone="onDark" className="mb-12 max-w-2xl">
+            But be doers of the word, and not hearers only, deceiving yourselves.
+          </Scripture>
 
           <div className="space-y-6">
             {process.map((item) => (
@@ -449,6 +551,9 @@ export default function CounselingPage() {
                 Financial hardship options are available on request. No one is turned away because
                 they cannot pay.
               </p>
+              <Scripture reference="Matthew 10:8" className="pt-1">
+                You received without paying; give without pay.
+              </Scripture>
             </div>
           </div>
         </div>
@@ -494,6 +599,10 @@ export default function CounselingPage() {
               </li>
             ))}
           </ul>
+          <Scripture reference="Psalm 46:1" className="mt-6">
+            God is our refuge and strength, a very present help in trouble.
+          </Scripture>
+
           <p className="text-sm text-[#5D5D5D]/90 leading-relaxed mt-6">
             We follow written protocols for domestic abuse, child abuse reporting,
             and risk of harm to self or others, in keeping with Alabama law and our duty to
@@ -551,21 +660,37 @@ export default function CounselingPage() {
           <h2 className="text-3xl md:text-5xl font-bold text-[#2C4061] mb-6">
             Take the First Step
           </h2>
-          <p className="text-lg text-[#5D5D5D] leading-relaxed mb-10">
+          <p className="text-lg text-[#5D5D5D] leading-relaxed mb-8">
             You don&rsquo;t need to have it figured out or know how to explain it. Send us a note,
             and we&rsquo;ll go from there.
           </p>
+
+          <Scripture reference="Hebrews 4:16" align="center" className="mb-10 max-w-2xl mx-auto">
+            Let us then with confidence draw near to the throne of grace, that we may receive mercy
+            and find grace to help in time of need.
+          </Scripture>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
+            <a
+              href={INTAKE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-[#2C4061] text-[#F5F3EE] px-6 sm:px-8 py-4 rounded-lg font-medium hover:bg-[#2C4061]/90 transition-colors"
+            >
+              <ClipboardList className="w-4 h-4" />
+              Start the Intake Form
+            </a>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-[#2C4061] text-[#F5F3EE] px-6 sm:px-8 py-4 rounded-lg font-medium hover:bg-[#2C4061]/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 border border-[#2C4061]/30 text-[#2C4061] px-6 sm:px-8 py-4 rounded-lg font-medium hover:bg-[#2C4061]/5 transition-colors"
             >
               Contact Us
               <ArrowRight className="w-4 h-4" />
             </Link>
+          </div>
+          <div className="text-[#5D5D5D] mt-6">
             <a
               href="mailto:Parker@gracelifedecatur.org?subject=Biblical%20Counseling"
-              className="inline-flex items-center justify-center gap-2 border border-[#2C4061]/30 text-[#2C4061] px-6 sm:px-8 py-4 rounded-lg font-medium hover:bg-[#2C4061]/5 transition-colors break-all"
+              className="inline-block underline px-3 py-2 rounded-lg hover:text-[#2C4061] hover:bg-[#2C4061]/5 transition-colors break-all"
             >
               Parker@gracelifedecatur.org
             </a>
