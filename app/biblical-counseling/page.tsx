@@ -17,7 +17,6 @@ import {
   Church,
   Check,
   X,
-  ClipboardList,
 } from "lucide-react"
 
 /**
@@ -99,7 +98,11 @@ interface CounselingDoc {
   pdfUrl: string
 }
 
-const INTAKE_FORM_URL = "https://form.jotform.com/gracelifedecatur/gracelife-biblical-counseling"
+// BibliCare portal: new counselees create an account, complete the required forms,
+// and submit a care request there; returning counselees sign in at the same link.
+const CARE_PORTAL_URL =
+  "https://biblicare.net/Site/Access/Login?KeyID=EBCAC141-1224-490B-B7F5-27852787"
+const CARE_PORTAL_LABEL = "Request Counseling"
 
 const documents: CounselingDoc[] = [
   {
@@ -284,6 +287,17 @@ export default function CounselingPage() {
               maskSize: "contain",
             }}
           />
+          <div className="mt-8 md:mt-10 flex justify-center">
+            <a
+              href={CARE_PORTAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-[#F5F3EE] text-[#2C4061] px-6 sm:px-8 py-4 rounded-lg font-medium hover:bg-white transition-colors"
+            >
+              {CARE_PORTAL_LABEL}
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -671,20 +685,19 @@ export default function CounselingPage() {
           </Scripture>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
             <a
-              href={INTAKE_FORM_URL}
+              href={CARE_PORTAL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-[#2C4061] text-[#F5F3EE] px-6 sm:px-8 py-4 rounded-lg font-medium hover:bg-[#2C4061]/90 transition-colors"
             >
-              <ClipboardList className="w-4 h-4" />
-              Start the Intake Form
+              {CARE_PORTAL_LABEL}
+              <ArrowRight className="w-4 h-4" />
             </a>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 border border-[#2C4061]/30 text-[#2C4061] px-6 sm:px-8 py-4 rounded-lg font-medium hover:bg-[#2C4061]/5 transition-colors"
             >
               Contact Us
-              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
           <div className="text-[#5D5D5D] mt-6">
