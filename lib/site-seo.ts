@@ -54,7 +54,7 @@ export const SEO_KEYWORDS = [
 export function getSiteUrl(): string {
   const raw = process.env.NEXT_PUBLIC_SITE_URL
   if (raw) return raw.replace(/\/$/, "")
-  return "https://gracelifedecatur.com"
+  return "https://www.gracelifedecatur.org"
 }
 
 export function churchJsonLd() {
