@@ -1,8 +1,4 @@
-"use client"
-
-import { useState } from "react"
 import Link from "next/link"
-import dynamic from "next/dynamic"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { RefTagger } from "@/components/ref-tagger"
@@ -10,7 +6,6 @@ import {
   BookOpen,
   Users,
   ShieldCheck,
-  FileText,
   Phone,
   ArrowRight,
   HandHeart,
@@ -85,55 +80,11 @@ function Scripture({
   )
 }
 
-// Dynamically import PdfModal with SSR disabled to avoid DOMMatrix issues
-const PdfModal = dynamic(
-  () => import("@/components/pdf-modal").then((mod) => ({ default: mod.PdfModal })),
-  { ssr: false }
-)
-
-interface CounselingDoc {
-  id: string
-  title: string
-  description: string
-  pdfUrl: string
-}
-
 // BibliCare portal: new counselees create an account, complete the required forms,
 // and submit a care request there; returning counselees sign in at the same link.
 const CARE_PORTAL_URL =
   "https://biblicare.net/Site/Access/Login?KeyID=EBCAC141-1224-490B-B7F5-27852787"
 const CARE_PORTAL_LABEL = "Request Counseling"
-
-const documents: CounselingDoc[] = [
-  {
-    id: "personal-data-inventory",
-    title: "Personal Data Inventory",
-    description:
-      "The intake form we ask you to complete before counseling begins, so your counselor can know your history, your health, and your situation well.",
-    pdfUrl: "/counseling/GL_Personal_Data_Inventory.pdf",
-  },
-  {
-    id: "informed-consent",
-    title: "Informed Consent Agreement",
-    description:
-      "The agreement every counselee reads and signs before the first session. Covers our goal, our biblical basis, confidentiality and its limits, medication, fees, and arbitration.",
-    pdfUrl: "/counseling/GL_Informed_Consent_Agreement.pdf",
-  },
-  {
-    id: "advocate-agreement",
-    title: "Counseling Advocate Agreement",
-    description:
-      "For the friend, family member, or church leader who walks through counseling alongside a counselee. Explains the advocate's role, expectations, and confidentiality.",
-    pdfUrl: "/counseling/GL_Counseling_Advocate_Agreement.pdf",
-  },
-  {
-    id: "trainee-agreement",
-    title: "Trainee / Observer Agreement",
-    description:
-      "For counselors-in-training observing sessions as part of their certification. We are a training facility, so a trainee may sit in, always with your knowledge.",
-    pdfUrl: "/counseling/GL_Counseling_Trainee_Observer_Agreement.pdf",
-  },
-]
 
 const commitments = [
   {
@@ -243,23 +194,6 @@ const process = [
 ]
 
 export default function CounselingPage() {
-  const [selectedPdf, setSelectedPdf] = useState<{ url: string; title: string } | null>(null)
-
-  function openDocument(doc: CounselingDoc) {
-    // Mobile browsers don't reliably render a PDF inside an iframe (iOS Safari
-    // shows only the first page; some Android browsers show nothing), so hand
-    // small screens off to the browser's own PDF viewer instead of the modal.
-    const isSmallScreen =
-      typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches
-
-    if (isSmallScreen) {
-      window.open(doc.pdfUrl, "_blank", "noopener,noreferrer")
-      return
-    }
-
-    setSelectedPdf({ url: doc.pdfUrl, title: doc.title })
-  }
-
   return (
     <main>
       {/* Turns the Scripture references below into hover-to-read ESV links */}
@@ -532,7 +466,9 @@ export default function CounselingPage() {
             <div className="space-y-4 text-[#5D5D5D] leading-relaxed">
               <p>
                 Counseling is available to members, regular attenders, and active participants of
-                GraceLife Church. Where we have capacity, we also serve those from other churches.
+                GraceLife Church. We simply ask that you be involved in the community of faith
+                during the duration of care. Where we have capacity, we also serve those from other
+                churches.
               </p>
               <p>
                 If you attend elsewhere, we&rsquo;ll ask you to bring an{" "}
@@ -625,49 +561,6 @@ export default function CounselingPage() {
         </div>
       </section>
 
-      {/* The Documents */}
-      <section id="documents" className="relative py-12 md:py-20 px-6 bg-[#2C4061]">
-        {/* Background photo */}
-        <div
-          className="absolute inset-0 bg-cover bg-center md:bg-fixed"
-          style={{ backgroundImage: "url('/counseling/bg4.jpg')" }}
-          aria-hidden="true"
-        />
-        {/* Navy wash keeps this a dark section so the light text holds up */}
-        <div className="absolute inset-0 bg-[#2C4061]/88" aria-hidden="true" />
-
-        <div className="relative max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-6xl font-bold text-[#F5F3EE] mb-4">The Documents</h2>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {documents.map((doc) => (
-              <button
-                key={doc.id}
-                type="button"
-                onClick={() => openDocument(doc)}
-                className="text-left bg-[#F5F3EE] rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col group hover:-translate-y-1 cursor-pointer"
-              >
-                <FileText className="w-8 h-8 text-[#2C4061] mb-4" />
-                <h4 className="text-xl font-bold text-[#2C4061] mb-3">{doc.title}</h4>
-                <p className="text-[#5D5D5D] leading-relaxed text-sm flex-grow mb-4">
-                  {doc.description}
-                </p>
-                <span className="flex items-center text-[#2C4061] font-medium group-hover:underline">
-                  <FileText className="w-4 h-4 mr-2" />
-                  Open PDF
-                </span>
-              </button>
-            ))}
-          </div>
-
-          <p className="text-sm text-[#F5F3EE]/60 leading-relaxed mt-10 max-w-3xl">
-            Additional internal protocols, including our procedures for domestic abuse, mandatory
-            reporting of child abuse, and risk assessment for threat of harm, are maintained for
-            us and are available on request.
-          </p>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-16 md:py-24 px-6 bg-[#F5F3EE]">
         <div className="max-w-3xl mx-auto text-center">
@@ -719,16 +612,6 @@ export default function CounselingPage() {
           </div>
         </div>
       </section>
-
-      {/* PDF Modal */}
-      {selectedPdf && (
-        <PdfModal
-          isOpen={!!selectedPdf}
-          onClose={() => setSelectedPdf(null)}
-          pdfUrl={selectedPdf.url}
-          title={selectedPdf.title}
-        />
-      )}
 
       <Footer />
     </main>
