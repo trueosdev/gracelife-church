@@ -57,32 +57,44 @@ export function getSiteUrl(): string {
   return "https://www.gracelifedecatur.org"
 }
 
+export const CHURCH_PHONE = "+1-256-355-3790"
+
+export const CHURCH_ADDRESS = {
+  "@type": "PostalAddress",
+  streetAddress: "1311 19th Ave SE",
+  addressLocality: "Decatur",
+  addressRegion: "AL",
+  postalCode: "35601",
+  addressCountry: "US",
+} as const
+
+export const CHURCH_GEO = {
+  "@type": "GeoCoordinates",
+  latitude: 34.586639,
+  longitude: -86.965997,
+} as const
+
+/** Stable JSON-LD node id, so other pages' structured data can point at the church. */
+export function churchId(): string {
+  return `${getSiteUrl()}/#church`
+}
+
 export function churchJsonLd() {
   const base = getSiteUrl()
   return {
     "@context": "https://schema.org",
     "@type": "Church",
+    "@id": churchId(),
     name: SITE_NAME,
     description: SEO_LONG_DESCRIPTION,
     knowsAbout: [...SEO_KNOWS_ABOUT],
     url: base,
     image: `${base}/ogimage.png`,
     logo: `${base}/icon.svg`,
-    telephone: "+1-256-355-3790",
+    telephone: CHURCH_PHONE,
     email: "gracelifedecatur@gmail.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "1311 19th Ave SE",
-      addressLocality: "Decatur",
-      addressRegion: "AL",
-      postalCode: "35601",
-      addressCountry: "US",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 34.586639,
-      longitude: -86.965997,
-    },
+    address: CHURCH_ADDRESS,
+    geo: CHURCH_GEO,
     sameAs: [
       "https://www.facebook.com/GraceLifeChurchDecatur/",
       "https://www.youtube.com/@gracelifechurchdecatur",

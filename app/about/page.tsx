@@ -4,6 +4,8 @@ import { DoctrinalSection } from "@/components/doctrinal-section"
 import { DistinctivesSection } from "@/components/distinctives-section"
 import { StaffSection } from "@/components/staff-section"
 import { Footer } from "@/components/footer"
+import { PageHero } from "@/components/page-hero"
+import { Aurora } from "@/components/ambient"
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -17,23 +19,18 @@ export default function AboutPage() {
     <main>
       <Header />
       
-      {/* Hero Banner */}
-      <section
-        className="relative pt-48 pb-32 px-6 bg-[#2C4061] bg-cover bg-[center_20%]"
-        style={{ backgroundImage: "url('/churchbuilding.png')" }}
-      >
-        <div className="absolute inset-0 bg-[#2C4061]/60" />
-        <div className="relative max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-[#F5F3EE] mb-4">About Us</h1>
-          <p className="text-xl text-[#F5F3EE] max-w-2xl mx-auto">
-            Learn more about GraceLife Church — our beliefs, our mission, and our community.
-          </p>
-        </div>
-      </section>
+      <PageHero title="About Us" image="/churchbuilding.png" imagePosition="center 20%">
+        <p>Learn more about GraceLife Church — our beliefs, our mission, and our community.</p>
+      </PageHero>
 
-      <DoctrinalSection />
-      <StaffSection />
-      <DistinctivesSection />
+      <div className="relative bg-[#F5F3EE]">
+        <Aurora />
+        <div className="relative">
+          <DoctrinalSection />
+          <StaffSection />
+          <DistinctivesSection />
+        </div>
+      </div>
       <Footer />
     </main>
   )

@@ -2,6 +2,11 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { RefTagger } from "@/components/ref-tagger"
+import { Aurora, Waves } from "@/components/ambient"
+import {
+  COUNSELING_PORTAL_URL as CARE_PORTAL_URL,
+  counselingJsonLd,
+} from "@/lib/counseling-seo"
 import {
   BookOpen,
   Users,
@@ -65,13 +70,13 @@ function Scripture({
       ].join(" ")}
     >
       <blockquote
-        className={`italic leading-relaxed ${dark ? "text-[#F5F3EE]/85" : "text-[#5D5D5D]"}`}
+        className={`font-serif text-xl md:text-2xl leading-relaxed ${dark ? "text-[#F5F3EE]/90" : "text-[#2C4061]/85"}`}
       >
         &ldquo;{children}&rdquo;
       </blockquote>
       <figcaption
-        className={`mt-2 text-sm font-semibold tracking-wide ${
-          dark ? "text-[#F5F3EE]/60" : "text-[#2C4061]/70"
+        className={`mt-3 text-xs font-semibold uppercase tracking-[0.2em] ${
+          dark ? "text-[#F5F3EE]/60" : "text-[#3F7660]"
         }`}
       >
         {reference}
@@ -80,10 +85,6 @@ function Scripture({
   )
 }
 
-// BibliCare portal: new counselees create an account, complete the required forms,
-// and submit a care request there; returning counselees sign in at the same link.
-const CARE_PORTAL_URL =
-  "https://biblicare.net/Site/Access/Login?KeyID=EBCAC141-1224-490B-B7F5-27852787"
 const CARE_PORTAL_LABEL = "Request Counseling"
 
 const commitments = [
@@ -196,14 +197,22 @@ const process = [
 export default function CounselingPage() {
   return (
     <main>
+      {/* Structured data: the counseling service, FAQ, breadcrumb, and steps below */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(counselingJsonLd(process)).replace(/</g, "\\u003c"),
+        }}
+      />
       {/* Turns the Scripture references below into hover-to-read ESV links */}
       <RefTagger />
       <Header />
 
       {/* Hero Banner */}
-      <section className="relative pt-24 md:pt-32 pb-12 md:pb-20 px-6 bg-[#2C4061]">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="sr-only">GraceLife Biblical Counseling</h1>
+      <section className="relative overflow-hidden pt-28 md:pt-36 pb-32 md:pb-44 px-6 bg-[#2C4061]">
+        <Aurora tone="dark" />
+        <div className="relative max-w-7xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 ease-out">
+          <h1 className="sr-only">GraceLife Biblical Counseling in Decatur, Alabama</h1>
           {/* The logo art is a single navy color, so it would disappear against this
               navy banner. Paint it as a mask instead to render the same file in cream. */}
           <div
@@ -221,36 +230,47 @@ export default function CounselingPage() {
               maskSize: "contain",
             }}
           />
+          <p className="mt-6 md:mt-8 text-center font-serif text-lg md:text-2xl text-[#F5F3EE]/80">
+            The biblical counseling ministry of GraceLife Church in Decatur, Alabama
+          </p>
           <div className="mt-8 md:mt-10 flex justify-center">
             <a
               href={CARE_PORTAL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#F5F3EE] text-[#2C4061] px-6 sm:px-8 py-4 rounded-lg font-medium hover:bg-white transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-[#F5F3EE] text-[#2C4061] px-8 sm:px-9 py-4 rounded-full font-medium hover:bg-white transition-colors"
             >
               {CARE_PORTAL_LABEL}
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </div>
+        <Waves />
       </section>
 
       {/* The Heart Behind It */}
-      <section className="relative py-12 md:py-20 px-6 bg-[#F5F3EE]">
+      <section id="what-is-biblical-counseling" className="relative py-20 md:py-28 px-6 bg-[#F5F3EE]">
         {/* Background photo */}
         <div
           className="absolute inset-0 bg-cover bg-center md:bg-fixed"
           style={{ backgroundImage: "url('/counseling/bg1.jpg')" }}
           aria-hidden="true"
         />
-        {/* Wash so body copy stays readable over the photo */}
-        <div className="absolute inset-0 bg-[#F5F3EE]/75" aria-hidden="true" />
+        {/* Wash so body copy stays readable over the photo; solid at the top so the
+            hero's waves flow straight into it */}
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-[#F5F3EE] via-[#F5F3EE]/75 to-[#F5F3EE]/75"
+          aria-hidden="true"
+        />
 
-        <div className="relative max-w-4xl mx-auto bg-[#F5F3EE]/90 backdrop-blur-sm rounded-3xl shadow-sm border border-[#2C4061]/10 p-6 sm:p-8 md:p-12">
-          <h2 className="text-3xl md:text-6xl font-bold text-[#2C4061] mb-6">
+        <div
+          className="relative max-w-3xl mx-auto bg-[#F5F3EE]/85 backdrop-blur-md rounded-[2rem] shadow-[0_40px_80px_-40px_rgba(44,64,97,0.35)] border border-white/70 p-7 sm:p-10 md:p-16"
+          data-reveal
+        >
+          <h2 className="text-4xl md:text-6xl text-[#2C4061] mb-10">
             The Heart Behind It
           </h2>
-          <div className="space-y-6 text-lg text-[#5D5D5D] leading-relaxed">
+          <div className="space-y-7 text-lg text-[#5D5D5D] leading-[1.85]">
             <p>
               Life in a fallen world breaks people. Marriages grow cold, grief settles in and
               won't lift, anger surfaces in ways we swore it never would, anxiety tightens its
@@ -284,7 +304,7 @@ export default function CounselingPage() {
               follows. Our aim is that you would find Christ sufficient, and be transformed by His
               Spirit into His likeness.
             </p>
-            <p className="text-[#2C4061] font-medium text-xl">
+            <p className="font-serif text-[#2C4061] text-2xl md:text-3xl leading-snug">
               You are worse off than you dare admit, and more loved than you ever dared hope. That
               is the ground every counseling conversation here stands on.
             </p>
@@ -299,28 +319,31 @@ export default function CounselingPage() {
       </section>
 
       {/* What We're Committed To */}
-      <section className="py-12 md:py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#2C4061] mb-8 md:mb-10">
+      <section id="commitments" className="relative py-20 md:py-28 px-6 bg-white">
+        <Aurora />
+        <div className="relative max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-6xl text-[#2C4061] mb-12 md:mb-16" data-reveal>
             What We&rsquo;re Committed To
           </h2>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:gap-8 md:grid-cols-2" data-reveal-group>
             {commitments.map((item) => (
               <div
                 key={item.title}
-                className="bg-[#F5F3EE] rounded-2xl p-6 sm:p-8 border border-[#2C4061]/10"
+                className="bg-[#F5F3EE]/80 backdrop-blur-sm rounded-3xl p-7 sm:p-10 border border-white shadow-[0_25px_60px_-35px_rgba(44,64,97,0.35)]"
               >
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-[#2C4061] flex-shrink-0">{item.icon}</span>
-                  <h3 className="text-xl md:text-2xl font-bold text-[#2C4061]">
+                <div className="flex items-center gap-4 mb-5">
+                  <span className="w-12 h-12 rounded-full bg-white text-[#2C4061] flex items-center justify-center flex-shrink-0 [&_svg]:w-6 [&_svg]:h-6">
+                    {item.icon}
+                  </span>
+                  <h3 className="text-2xl md:text-3xl text-[#2C4061]">
                     {item.title}
                   </h3>
                 </div>
-                <p className="text-[#5D5D5D] leading-relaxed">{item.body}</p>
-                <p className="mt-4 pt-4 border-t border-[#2C4061]/10 text-sm italic text-[#5D5D5D] leading-relaxed">
+                <p className="text-[#5D5D5D] leading-[1.8]">{item.body}</p>
+                <p className="mt-6 pt-6 border-t border-[#2C4061]/10 font-serif text-lg text-[#2C4061]/80 leading-relaxed">
                   &ldquo;{item.verse}&rdquo;{" "}
-                  <span className="not-italic font-semibold text-[#2C4061]/70">
+                  <span className="block mt-2 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#3F7660]">
                     {item.reference}
                   </span>
                 </p>
@@ -331,7 +354,7 @@ export default function CounselingPage() {
       </section>
 
       {/* What It Is / What It Isn't */}
-      <section className="relative py-12 md:py-20 px-6 bg-[#F5F3EE]">
+      <section id="what-it-is" className="relative pt-20 md:pt-28 pb-36 md:pb-48 px-6 bg-[#F5F3EE]">
         {/* Background photo */}
         <div
           className="absolute inset-0 bg-cover bg-center md:bg-fixed"
@@ -342,26 +365,26 @@ export default function CounselingPage() {
         <div className="absolute inset-0 bg-[#F5F3EE]/80" aria-hidden="true" />
 
         <div className="relative max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#2C4061] mb-6">
+          <h2 className="text-4xl md:text-6xl text-[#2C4061] mb-10" data-reveal>
             What Counseling Here Is, and What It Isn&rsquo;t
           </h2>
 
           <Scripture
             reference="Colossians 3:16"
-            className="mb-12 max-w-3xl bg-[#F5F3EE]/85 backdrop-blur-sm rounded-r-2xl py-4 pr-6"
+            className="mb-14 max-w-3xl bg-[#F5F3EE]/85 backdrop-blur-sm rounded-r-3xl py-5 pr-6"
           >
             Let the word of Christ dwell in you richly, teaching and admonishing one another in all
             wisdom.
           </Scripture>
 
-          <div className="grid gap-6 md:gap-8 md:grid-cols-2">
+          <div className="grid gap-6 md:gap-8 md:grid-cols-2" data-reveal-group>
             {/* What It Is */}
-            <div className="bg-white rounded-2xl shadow-lg border border-[#2C4061]/10 overflow-hidden">
+            <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-[0_30px_70px_-35px_rgba(44,64,97,0.45)] border border-white overflow-hidden">
               <div className="flex items-center gap-3 px-6 md:px-8 py-5 bg-[#629E82]/10 border-b border-[#2C4061]/8">
                 <span className="w-9 h-9 rounded-full bg-[#629E82] text-white flex items-center justify-center flex-shrink-0">
                   <Check className="w-5 h-5" strokeWidth={2.5} />
                 </span>
-                <h3 className="text-xl md:text-2xl font-bold text-[#2C4061]">What It Is</h3>
+                <h3 className="text-2xl md:text-3xl text-[#2C4061]">What It Is</h3>
               </div>
               <ul className="divide-y divide-[#2C4061]/8">
                 {whatItIs.map((item) => (
@@ -379,12 +402,12 @@ export default function CounselingPage() {
             </div>
 
             {/* What It Isn't */}
-            <div className="bg-white rounded-2xl shadow-lg border border-[#2C4061]/10 overflow-hidden">
+            <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-[0_30px_70px_-35px_rgba(44,64,97,0.45)] border border-white overflow-hidden">
               <div className="flex items-center gap-3 px-6 md:px-8 py-5 bg-[#A45E59]/10 border-b border-[#2C4061]/8">
                 <span className="w-9 h-9 rounded-full bg-[#A45E59] text-white flex items-center justify-center flex-shrink-0">
                   <X className="w-5 h-5" strokeWidth={2.5} />
                 </span>
-                <h3 className="text-xl md:text-2xl font-bold text-[#2C4061]">
+                <h3 className="text-2xl md:text-3xl text-[#2C4061]">
                   What It Isn&rsquo;t
                 </h3>
               </div>
@@ -404,7 +427,7 @@ export default function CounselingPage() {
             </div>
           </div>
 
-          <p className="text-[#5D5D5D] leading-relaxed mt-8 max-w-3xl bg-[#F5F3EE]/85 backdrop-blur-sm rounded-2xl border border-[#2C4061]/10 p-6">
+          <p className="text-[#5D5D5D] leading-[1.8] mt-8 max-w-3xl bg-[#F5F3EE]/85 backdrop-blur-sm rounded-3xl border border-white p-7" data-reveal>
             We are certified through the{" "}
             <strong className="text-[#2C4061]">ACBC</strong> (Association of Certified Biblical
             Counselors) or <strong className="text-[#2C4061]">IBCD</strong> (Institute of Biblical
@@ -413,57 +436,63 @@ export default function CounselingPage() {
             be expected to follow the methods of such specialists.
           </p>
         </div>
+        <Waves fill="#2C4061" />
       </section>
 
       {/* How It Works */}
-      <section className="py-12 md:py-20 px-6 bg-[#2C4061]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#F5F3EE] mb-4">How It Works</h2>
-          <p className="text-lg text-[#F5F3EE]/80 leading-relaxed mb-8 max-w-2xl">
+      <section id="how-it-works" className="relative overflow-hidden pt-16 md:pt-20 pb-36 md:pb-48 px-6 bg-[#2C4061]">
+        <Aurora tone="dark" />
+        <div className="relative max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-6xl text-[#F5F3EE] mb-6" data-reveal>How It Works</h2>
+          <p className="text-lg text-[#F5F3EE]/80 leading-[1.8] mb-10 max-w-2xl" data-reveal>
             Nothing about the process is meant to be mysterious. Here is what to expect from the
             first email to the last session.
           </p>
 
-          <Scripture reference="James 1:22" tone="onDark" className="mb-12 max-w-2xl">
+          <Scripture reference="James 1:22" tone="onDark" className="mb-14 max-w-2xl">
             But be doers of the word, and not hearers only, deceiving yourselves.
           </Scripture>
 
-          <div className="space-y-6">
+          <div className="space-y-5" data-reveal-group>
             {process.map((item) => (
               <div
                 key={item.step}
-                className="flex gap-4 sm:gap-6 items-start bg-[#F5F3EE]/5 rounded-2xl p-5 sm:p-6 border border-[#F5F3EE]/15"
+                className="flex gap-5 sm:gap-8 items-start bg-white/[0.06] backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-white/10"
               >
-                <span className="text-2xl md:text-3xl font-bold text-[#F5F3EE]/40 flex-shrink-0 leading-none pt-1">
+                <span className="font-serif text-3xl md:text-4xl text-[#F5F3EE]/40 w-10 md:w-12 flex-shrink-0 leading-none pt-1">
                   {item.step}
                 </span>
                 <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-[#F5F3EE] mb-2">
+                  <h3 className="text-2xl md:text-3xl text-[#F5F3EE] mb-3">
                     {item.title}
                   </h3>
-                  <p className="text-[#F5F3EE]/80 leading-relaxed">{item.body}</p>
+                  <p className="text-[#F5F3EE]/80 leading-[1.8]">{item.body}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
+        <Waves />
       </section>
 
       {/* Who It's For & Cost */}
-      <section className="relative py-12 md:py-20 px-6 bg-[#F5F3EE]">
+      <section id="who-its-for" className="relative py-20 md:py-28 px-6 bg-[#F5F3EE]">
         {/* Background photo */}
         <div
           className="absolute inset-0 bg-cover bg-center md:bg-fixed"
           style={{ backgroundImage: "url('/counseling/bg2.jpg')" }}
           aria-hidden="true"
         />
-        {/* Wash to soften the sky behind the cards */}
-        <div className="absolute inset-0 bg-[#F5F3EE]/40" aria-hidden="true" />
+        {/* Wash to soften the sky behind the cards; solid at the top to meet the waves */}
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-[#F5F3EE] via-[#F5F3EE]/40 to-[#F5F3EE]/40"
+          aria-hidden="true"
+        />
 
-        <div className="relative max-w-5xl mx-auto grid gap-8 md:grid-cols-2">
-          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-[#2C4061]/10">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#2C4061] mb-4">Who It&rsquo;s For</h3>
-            <div className="space-y-4 text-[#5D5D5D] leading-relaxed">
+        <div className="relative max-w-5xl mx-auto grid gap-8 md:grid-cols-2" data-reveal-group>
+          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-7 sm:p-10 shadow-[0_30px_70px_-35px_rgba(44,64,97,0.45)] border border-white">
+            <h3 className="text-3xl md:text-4xl text-[#2C4061] mb-6">Who It&rsquo;s For</h3>
+            <div className="space-y-4 text-[#5D5D5D] leading-[1.8]">
               <p>
                 Counseling is available to members, regular attenders, and active participants of
                 GraceLife Church. We simply ask that you be involved in the community of faith
@@ -483,9 +512,9 @@ export default function CounselingPage() {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-[#2C4061]/10">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#2C4061] mb-4">What It Costs</h3>
-            <div className="space-y-4 text-[#5D5D5D] leading-relaxed">
+          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-7 sm:p-10 shadow-[0_30px_70px_-35px_rgba(44,64,97,0.45)] border border-white">
+            <h3 className="text-3xl md:text-4xl text-[#2C4061] mb-6">What It Costs</h3>
+            <div className="space-y-4 text-[#5D5D5D] leading-[1.8]">
               <p>
                 <strong className="text-[#2C4061]">Free</strong> for members, regular attenders,
                 and active participants of GraceLife Church. You may need to purchase study
@@ -510,11 +539,11 @@ export default function CounselingPage() {
       </section>
 
       {/* If You Are In Danger */}
-      <section className="py-12 md:py-16 px-6 bg-white">
-        <div className="max-w-4xl mx-auto bg-[#A45E59]/8 border-l-4 border-[#A45E59] rounded-2xl p-6 sm:p-8 md:p-10">
+      <section id="crisis" className="py-20 md:py-28 px-6 bg-gradient-to-b from-white to-[#F5F3EE]">
+        <div className="max-w-4xl mx-auto bg-[#A45E59]/[0.07] border-l-4 border-[#A45E59] rounded-3xl p-7 sm:p-10 md:p-12" data-reveal>
           <div className="flex items-start gap-3 mb-4">
             <Phone className="w-7 h-7 text-[#A45E59] flex-shrink-0 mt-0.5" />
-            <h2 className="text-2xl md:text-3xl font-bold text-[#2C4061]">
+            <h2 className="text-3xl md:text-4xl text-[#2C4061]">
               If You Are In Danger
             </h2>
           </div>
@@ -538,7 +567,7 @@ export default function CounselingPage() {
               <li key={item.label}>
                 <a
                   href={`tel:${item.tel}`}
-                  className="flex flex-wrap items-baseline gap-x-2 gap-y-1 bg-white/60 rounded-lg px-4 py-3 hover:bg-white transition-colors"
+                  className="flex flex-wrap items-baseline gap-x-2 gap-y-1 bg-white/70 rounded-2xl px-5 py-3.5 hover:bg-white transition-colors"
                 >
                   <span className="font-semibold text-[#2C4061]">{item.label}:</span>
                   <span className="text-[#A45E59] font-semibold underline">{item.number}</span>
@@ -562,12 +591,13 @@ export default function CounselingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 px-6 bg-[#F5F3EE]">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#2C4061] mb-6">
+      <section id="get-started" className="relative py-24 md:py-36 px-6 bg-[#F5F3EE]">
+        <Aurora />
+        <div className="relative max-w-3xl mx-auto text-center" data-reveal>
+          <h2 className="text-4xl md:text-6xl text-[#2C4061] mb-8">
             Take the First Step
           </h2>
-          <p className="text-lg text-[#5D5D5D] leading-relaxed mb-8">
+          <p className="text-lg text-[#5D5D5D] leading-[1.8] mb-10">
             You don&rsquo;t need to have it figured out or know how to explain it. Send us a note,
             and we&rsquo;ll go from there.
           </p>
@@ -581,14 +611,14 @@ export default function CounselingPage() {
               href={CARE_PORTAL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#2C4061] text-[#F5F3EE] px-6 sm:px-8 py-4 rounded-lg font-medium hover:bg-[#2C4061]/90 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-[#2C4061] text-[#F5F3EE] px-8 sm:px-9 py-4 rounded-full font-medium hover:bg-[#3b5479] transition-colors"
             >
               {CARE_PORTAL_LABEL}
               <ArrowRight className="w-4 h-4" />
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 border border-[#2C4061]/30 text-[#2C4061] px-6 sm:px-8 py-4 rounded-lg font-medium hover:bg-[#2C4061]/5 transition-colors"
+              className="inline-flex items-center justify-center gap-2 border border-[#2C4061]/25 text-[#2C4061] px-8 sm:px-9 py-4 rounded-full font-medium hover:bg-[#2C4061]/5 transition-colors"
             >
               Contact Us
             </Link>
@@ -608,7 +638,7 @@ export default function CounselingPage() {
             >
               (256) 355-3790
             </a>
-            <p className="mt-1">1311 19th Ave SE, Decatur, AL 35601</p>
+            <address className="mt-1 not-italic">1311 19th Ave SE, Decatur, AL 35601</address>
           </div>
         </div>
       </section>

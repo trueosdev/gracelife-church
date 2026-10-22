@@ -84,11 +84,11 @@ export function Header() {
             </a>
           </div>
 
-          <Button asChild variant="ghost" size="sm" className="hidden md:inline-flex text-[#F5F3EE] hover:bg-black/5">
+          <Button asChild variant="ghost" size="sm" className="hidden md:inline-flex rounded-full px-4 text-[#F5F3EE] hover:bg-white/10 hover:text-[#F5F3EE]">
             <Link href="/biblical-counseling">Biblical Counseling</Link>
           </Button>
 
-          <Button variant="ghost" size="sm" className="text-[#F5F3EE] hover:bg-black/5">
+          <Button variant="ghost" size="sm" className="rounded-full px-4 text-[#F5F3EE] hover:bg-white/10 hover:text-[#F5F3EE]">
             <Search className="w-4 h-4 md:mr-2" />
             <span className="hidden md:inline">Search</span>
           </Button>
@@ -97,10 +97,10 @@ export function Header() {
             <Button
               variant="outline"
               size="sm"
-              className={`text-black transition-colors ${
+              className={`rounded-full px-4 border-transparent text-[#2C4061] shadow-none backdrop-blur-md transition-colors ${
                 isMenuOpen
-                  ? "bg-[#F5F3EE]/90 hover:bg-black/5"
-                  : "bg-[#F5F3EE] hover:bg-black/5"
+                  ? "bg-[#F5F3EE] hover:bg-[#F5F3EE]"
+                  : "bg-[#F5F3EE]/90 hover:bg-[#F5F3EE]"
               }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
@@ -121,8 +121,8 @@ export function Header() {
                 />
 
                 {/* Dropdown */}
-                <div className="absolute right-0 top-full mt-2 w-56 bg-[#F5F3EE] rounded-lg shadow-xl border border-gray-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <nav className="py-2">
+                <div className="absolute right-0 top-full mt-3 w-60 bg-[#F5F3EE]/95 backdrop-blur-xl rounded-2xl shadow-[0_30px_60px_-20px_rgba(44,64,97,0.35)] border border-white/60 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-300">
+                  <nav className="py-3">
                     {menuItems.map((item) => {
                       const isInternalLink = item.href.startsWith("/")
                       const Component = isInternalLink ? Link : "a"
@@ -134,7 +134,7 @@ export function Header() {
                         <Component
                           key={item.label}
                           {...props}
-                          className={`${item.mobileOnly ? "block md:hidden" : "block"} px-4 py-3 text-gray-800 hover:bg-black/8.5 hover:text-black transition-colors font-medium`}
+                          className={`${item.mobileOnly ? "block md:hidden" : "block"} px-6 py-2.5 font-serif text-lg text-[#2C4061] hover:bg-[#2C4061]/5 hover:pl-7 transition-all`}
                           onClick={() => setIsMenuOpen(false)}
                         >
                           {item.label}

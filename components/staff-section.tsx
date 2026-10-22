@@ -18,29 +18,28 @@ export function StaffSection() {
   ]
 
   return (
-    <section id="staff" className="py-12 md:py-20 px-6 bg-[#F5F3EE]">
+    <section id="staff" className="py-20 md:py-28 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-6xl font-bold text-[#2C4061] mb-4">
+        <div className="text-center mb-14 md:mb-20" data-reveal>
+          <h2 className="text-4xl md:text-6xl text-[#2C4061]">
             Our Team
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-14 max-w-6xl mx-auto" data-reveal-group>
           {staff.map((member) => (
             <div key={member.name} className="text-center">
-              <div className="relative group overflow-hidden rounded-lg mb-6 aspect-square max-w-xs mx-auto">
+              <div className="relative group overflow-hidden rounded-full mb-8 aspect-square max-w-[16rem] mx-auto shadow-[0_30px_60px_-30px_rgba(44,64,97,0.5)] ring-8 ring-white/60">
                 <img 
                   src={member.image} 
                   alt={`${member.name}, ${member.role} at GraceLife Church`}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
                 />
-                <div className="absolute inset-0 bg-[#F5F3EE]/0 transition-all duration-300 group-hover:bg-[#F5F3EE]/10" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-[#2C4061] mb-2">
+              <h3 className="text-2xl md:text-3xl text-[#2C4061] mb-2">
                 {member.name}
               </h3>
-              <p className="text-lg text-[#5D5D5D]">
+              <p className="text-sm uppercase tracking-[0.2em] text-[#3F7660]">
                 {member.role}
               </p>
             </div>

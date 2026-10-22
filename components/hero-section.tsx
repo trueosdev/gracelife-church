@@ -6,7 +6,7 @@ export function HeroSection() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Watch GraceLife Church video on YouTube"
-      className={`group relative block aspect-video overflow-hidden rounded-xl border border-[#F5F3EE]/30 bg-black/40 shadow-2xl transition-transform duration-300 ease-out hover:scale-105 ${extraClassName}`}
+      className={`group relative block aspect-video overflow-hidden rounded-2xl border border-[#F5F3EE]/20 bg-black/40 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)] transition-transform duration-500 ease-out hover:scale-[1.03] ${extraClassName}`}
     >
       <iframe
         className="pointer-events-none absolute inset-0 h-full w-full"
@@ -30,10 +30,21 @@ export function HeroSection() {
           backgroundImage: "url(/gracelifebg.png)",
         }}
       />
+      {/* Navy wash from the left keeps the headline legible and softens the photo */}
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-[#1c2a40]/80 via-[#2C4061]/30 to-transparent"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/60 to-transparent"
+        aria-hidden="true"
+      />
 
-      <div className="relative z-10 flex flex-col items-start justify-center min-h-screen max-w-7xl mx-auto px-6 py-12 md:py-20">
+      <div className="relative z-10 flex flex-col items-start justify-center min-h-screen max-w-7xl mx-auto px-6 py-28 md:py-20">
         <div className="max-w-3xl">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-[#F5F3EE] mb-8 leading-tight">
+          {/* Entrance animation lives on the h1, not the wrapper: a transform on the
+              wrapper would become the containing block for the absolute video below. */}
+          <h1 className="text-5xl sm:text-6xl md:text-8xl text-[#F5F3EE] mb-8 leading-[1.02] animate-in fade-in slide-in-from-bottom-6 duration-1000 ease-out">
               Find grace.
               <br />
               Find truth.
@@ -43,12 +54,12 @@ export function HeroSection() {
             <img 
               src="/white-logoText.svg" 
               alt="GraceLife Church" 
-              className="h-16 sm:h-20 md:h-28 w-auto mt-4"/>
+              className="h-16 sm:h-20 md:h-28 w-auto mt-6 md:mt-8 opacity-90"/>
           </h1>
 
           <div className="absolute right-6 top-1/2 hidden -translate-y-1/2 items-center gap-6 lg:flex">
             {videoLink("w-auto xl:w-125")}
-            <div className="text-[#F5F3EE] text-xs tracking-widest writing-mode-vertical rotate-180">
+            <div className="text-[#F5F3EE]/70 text-[11px] tracking-[0.3em] writing-mode-vertical rotate-180">
               ADVANCING THE GOSPEL FOR THE GLORY OF GOD
             </div>
           </div>

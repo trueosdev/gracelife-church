@@ -6,6 +6,7 @@ import { StatementSection } from "@/components/statement-section"
 import { TheologicalSection } from "@/components/theological-section"
 import { SubscribeSection } from "@/components/subscribe-section"
 import { Footer } from "@/components/footer"
+import { Aurora } from "@/components/ambient"
 import { getSiteUrl } from "@/lib/site-seo"
 
 export const metadata: Metadata = {
@@ -19,9 +20,15 @@ export default function Page() {
       <Header />
       <HeroSection />
       <WorshipSection />
-      <StatementSection />
-      <TheologicalSection />
-      <SubscribeSection />
+      {/* One cream canvas with drifting glows behind the lighter sections */}
+      <div className="relative bg-[#F5F3EE]">
+        <Aurora />
+        <div className="relative">
+          <StatementSection />
+          <TheologicalSection />
+          <SubscribeSection />
+        </div>
+      </div>
       <Footer />
     </main>
   )

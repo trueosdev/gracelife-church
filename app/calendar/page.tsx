@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { PageHero } from "@/components/page-hero"
+import { Aurora } from "@/components/ambient"
 
 export const metadata: Metadata = {
   title: "Calendar",
@@ -14,16 +16,13 @@ export default function CalendarPage() {
     <main className="min-h-screen">
       <Header />
       
-      {/* Calendar Section */}
-      <section className="relative pt-32 pb-20 px-6 bg-[#2C4061] min-h-screen">
-        <div className="max-w-7xl mx-auto">
-          {/* Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold text-[#F5F3EE] text-center mb-8">
-            Calendar
-          </h1>
+      <PageHero title="Calendar" />
 
-          {/* Calendar Embed */}
-          <div className="w-full rounded-lg overflow-hidden border border-[#F5F3EE]/30">
+      {/* Calendar Embed */}
+      <section className="relative py-20 md:py-28 px-6 bg-[#F5F3EE]">
+        <Aurora />
+        <div className="relative max-w-7xl mx-auto">
+          <div className="w-full rounded-3xl overflow-hidden bg-white p-2 md:p-4 shadow-[0_30px_60px_-35px_rgba(44,64,97,0.45)]" data-reveal>
             <iframe
               src="https://calendar.google.com/calendar/embed?src=gracelifedecatur%40gmail.com&ctz=America%2FChicago"
               style={{ border: 0 }}

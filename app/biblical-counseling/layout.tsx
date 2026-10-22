@@ -1,41 +1,70 @@
 import type { Metadata } from "next"
 import type React from "react"
-import { SITE_NAME } from "@/lib/site-seo"
+import { CHURCH_GEO, CHURCH_PHONE, SITE_NAME } from "@/lib/site-seo"
+import {
+  COUNSELING_EMAIL,
+  COUNSELING_KEYWORDS,
+  COUNSELING_LONG_DESCRIPTION,
+  COUNSELING_META_DESCRIPTION,
+  COUNSELING_OG_IMAGE,
+  COUNSELING_OG_IMAGE_ALT,
+  COUNSELING_PATH,
+  COUNSELING_TITLE,
+} from "@/lib/counseling-seo"
 
-const TITLE = "Biblical Counseling"
-const DESCRIPTION =
-  "GraceLife Counseling is the biblical counseling ministry of GraceLife Church in Decatur, AL. Christ-centered care from God's Word, offered through the local church."
-const OG_IMAGE = "/counseling/counseling-og.png"
+const FULL_TITLE = `${COUNSELING_TITLE} | ${SITE_NAME}`
 
 export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/biblical-counseling" },
+  title: COUNSELING_TITLE,
+  description: COUNSELING_META_DESCRIPTION,
+  keywords: COUNSELING_KEYWORDS,
+  category: "Biblical Counseling",
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  alternates: { canonical: COUNSELING_PATH },
   // Child openGraph/twitter replace the root's entirely, so every field is restated here.
   openGraph: {
-    title: `${TITLE} | ${SITE_NAME}`,
-    description: DESCRIPTION,
-    url: "/biblical-counseling",
+    title: FULL_TITLE,
+    description: COUNSELING_LONG_DESCRIPTION,
+    url: COUNSELING_PATH,
     siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
+    countryName: "United States",
+    emails: [COUNSELING_EMAIL],
+    phoneNumbers: [CHURCH_PHONE],
     images: [
       {
-        url: OG_IMAGE,
+        url: COUNSELING_OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "GraceLife Biblical Counseling — “Come to me, all who labor and are heavy laden, and I will give you rest.” Matthew 11:28",
+        alt: COUNSELING_OG_IMAGE_ALT,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${TITLE} | ${SITE_NAME}`,
-    description: DESCRIPTION,
-    images: [OG_IMAGE],
+    title: FULL_TITLE,
+    description: COUNSELING_META_DESCRIPTION,
+    images: [{ url: COUNSELING_OG_IMAGE, alt: COUNSELING_OG_IMAGE_ALT }],
   },
-  // DRAFT: page is unlinked and hidden from search until it's approved.
-  robots: { index: false, follow: false },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  // Local-search geo tags: the church building in Decatur, AL.
+  other: {
+    "geo.region": "US-AL",
+    "geo.placename": "Decatur, Alabama",
+    "geo.position": `${CHURCH_GEO.latitude};${CHURCH_GEO.longitude}`,
+    ICBM: `${CHURCH_GEO.latitude}, ${CHURCH_GEO.longitude}`,
+  },
 }
 
 export default function CounselingLayout({ children }: { children: React.ReactNode }) {

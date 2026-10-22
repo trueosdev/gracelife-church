@@ -9,6 +9,7 @@ const PATHS: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: "/calendar", priority: 0.8, changeFrequency: "weekly" },
   { path: "/resources", priority: 0.8, changeFrequency: "monthly" },
   { path: "/resources/sermons", priority: 0.85, changeFrequency: "weekly" },
+  { path: "/biblical-counseling", priority: 0.85, changeFrequency: "monthly" },
   { path: "/pastors-pen", priority: 0.7, changeFrequency: "monthly" },
 ]
 

@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { PageHero } from "@/components/page-hero"
+import { Aurora } from "@/components/ambient"
 
 export const metadata: Metadata = {
   title: "What to Expect",
@@ -14,24 +16,21 @@ export default function WhatToExpectPage() {
     <main>
       <Header />
 
-      {/* Hero Banner */}
-      <section className="relative pt-32 pb-20 px-6 bg-[#2C4061]">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold text-[#F5F3EE] mb-4">What to Expect</h1>
-          <p className="text-xl text-[#F5F3EE] max-w-2xl">
-            Planning your first visit? Here's a look at what a Sunday morning at GraceLife Church
-            is like.
-          </p>
-        </div>
-      </section>
+      <PageHero title="What to Expect">
+        <p>
+          Planning your first visit? Here's a look at what a Sunday morning at GraceLife Church
+          is like.
+        </p>
+      </PageHero>
 
       {/* Intentional Worship */}
-      <section id="intentional-worship" className="py-12 md:py-20 px-6 bg-[#F5F3EE]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-6xl font-bold text-[#2C4061] mb-6">
+      <section id="intentional-worship" className="relative py-20 md:py-28 px-6 bg-[#F5F3EE]">
+        <Aurora />
+        <div className="relative max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-6xl text-[#2C4061] mb-10" data-reveal>
             Intentional Worship
           </h2>
-          <div className="space-y-6 text-lg text-[#5D5D5D] leading-relaxed">
+          <div className="space-y-7 text-lg text-[#5D5D5D] leading-[1.85]" data-reveal>
             <p>
               Everything we do on Sunday morning is intentional. Our order of worship is not
               random, and it is not built around what we happen to prefer. We aim to worship God
@@ -63,7 +62,7 @@ export default function WhatToExpectPage() {
           </div>
 
           {/* Elements of Worship */}
-          <div className="mt-12 grid gap-4 sm:grid-cols-2">
+          <div className="mt-16 md:mt-20 grid gap-5 sm:grid-cols-2" data-reveal-group>
             {[
               {
                 title: "Call to Worship",
@@ -92,9 +91,12 @@ export default function WhatToExpectPage() {
             ].map((part, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-[#2C4061]/10"
+                className="bg-white/70 backdrop-blur-sm rounded-3xl p-7 md:p-8 shadow-[0_20px_50px_-30px_rgba(44,64,97,0.35)] border border-white"
               >
-                <h3 className="text-xl font-bold text-[#2C4061] mb-2">
+                <span className="block font-serif text-sm text-[#3F7660] mb-3">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="text-2xl text-[#2C4061] mb-3">
                   {part.title}
                 </h3>
                 <p className="text-[#5D5D5D] leading-relaxed">{part.body}</p>
@@ -107,31 +109,31 @@ export default function WhatToExpectPage() {
       {/* Childcare — GraceLife Littles */}
       <section
         id="childcare"
-        className="relative py-12 md:py-20 px-6 bg-gradient-to-b from-[#5B8BA5]/8 to-[#629E82]/8 overflow-hidden"
+        className="relative py-20 md:py-28 px-6 bg-gradient-to-b from-[#F5F3EE] via-[#5B8BA5]/8 to-[#629E82]/10 overflow-hidden"
       >
         {/* Playful color accents echoing the Littles logo */}
-        <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-[#C4A449]/15" />
-        <div className="absolute top-1/3 -right-12 w-48 h-48 rounded-full bg-[#A45E59]/12" />
-        <div className="absolute -bottom-16 left-1/4 w-56 h-56 rounded-full bg-[#65A459]/12" />
+        <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-[#C4A449]/15 blur-xl float-soft" aria-hidden="true" />
+        <div className="absolute top-1/3 -right-12 w-48 h-48 rounded-full bg-[#A45E59]/12 blur-xl float-soft [animation-delay:-3s]" aria-hidden="true" />
+        <div className="absolute -bottom-16 left-1/4 w-56 h-56 rounded-full bg-[#65A459]/12 blur-xl float-soft [animation-delay:-6s]" aria-hidden="true" />
 
-        <div className="relative max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="flex justify-center">
+        <div className="relative max-w-5xl mx-auto grid md:grid-cols-2 gap-14 md:gap-20 items-center">
+          <div className="flex justify-center" data-reveal>
             <img
               src="/gracelifelittles.svg"
               alt="GraceLife Littles"
               className="w-full max-w-lg h-auto"
             />
           </div>
-          <div>
-            <h2 className="text-3xl md:text-5xl font-bold text-[#5B8BA5] mb-6">
+          <div data-reveal>
+            <h2 className="text-4xl md:text-6xl text-[#5B8BA5] mb-8">
               Childcare
             </h2>
-            <p className="text-lg text-[#5D5D5D] leading-relaxed mb-8">
+            <p className="text-lg text-[#5D5D5D] leading-[1.85] mb-10">
               GraceLife Littles is our childcare ministry, providing a safe and loving
               environment for your youngest children so parents can worship with confidence.
             </p>
             <ul className="space-y-4">
-              <li className="flex gap-4 items-start bg-white/70 rounded-2xl p-4 border-l-4 border-[#A45E59]">
+              <li className="flex gap-4 items-start bg-white/70 backdrop-blur-sm rounded-2xl px-5 py-4 shadow-[0_15px_40px_-30px_rgba(44,64,97,0.4)] border-l-4 border-[#A45E59]">
                 <span
                   className="mt-1 flex-shrink-0 w-3 h-3 rounded-full"
                   style={{ backgroundColor: "#A45E59" }}
@@ -140,7 +142,7 @@ export default function WhatToExpectPage() {
                   Nursery available for ages birth through 4 years old.
                 </span>
               </li>
-              <li className="flex gap-4 items-start bg-white/70 rounded-2xl p-4 border-l-4 border-[#65A459]">
+              <li className="flex gap-4 items-start bg-white/70 backdrop-blur-sm rounded-2xl px-5 py-4 shadow-[0_15px_40px_-30px_rgba(44,64,97,0.4)] border-l-4 border-[#65A459]">
                 <span
                   className="mt-1 flex-shrink-0 w-3 h-3 rounded-full"
                   style={{ backgroundColor: "#65A459" }}
@@ -149,7 +151,7 @@ export default function WhatToExpectPage() {
                   All volunteers are background checked.
                 </span>
               </li>
-              <li className="flex gap-4 items-start bg-white/70 rounded-2xl p-4 border-l-4 border-[#C68045]">
+              <li className="flex gap-4 items-start bg-white/70 backdrop-blur-sm rounded-2xl px-5 py-4 shadow-[0_15px_40px_-30px_rgba(44,64,97,0.4)] border-l-4 border-[#C68045]">
                 <span
                   className="mt-1 flex-shrink-0 w-3 h-3 rounded-full"
                   style={{ backgroundColor: "#C68045" }}
@@ -164,14 +166,16 @@ export default function WhatToExpectPage() {
         </div>
 
         {/* To Parents with Small Children */}
-        <div id="children-in-worship" className="relative max-w-3xl mx-auto mt-16 md:mt-20 bg-[#2C4061] rounded-3xl shadow-lg p-8 md:p-12">
-          <h3 className="text-2xl md:text-4xl font-bold text-[#F5F3EE] mb-8">
+        <div id="children-in-worship" className="relative overflow-hidden max-w-3xl mx-auto mt-20 md:mt-28 bg-[#2C4061] rounded-[2rem] shadow-[0_40px_80px_-40px_rgba(44,64,97,0.6)] p-8 md:p-14" data-reveal>
+          <Aurora tone="dark" />
+          <div className="relative">
+          <h3 className="text-3xl md:text-5xl text-[#F5F3EE] mb-10">
             To Parents with Small Children
           </h3>
-          <div className="space-y-6 text-lg text-[#F5F3EE]/90 leading-relaxed">
+          <div className="space-y-6 text-lg text-[#F5F3EE]/85 leading-[1.8]">
             <p>
               First, we want you to hear this clearly:{" "}<br />
-              <span className="text-xl md:text-2xl font-semibold text-[#F5F3EE]">
+              <span className="font-serif text-2xl md:text-3xl text-[#F5F3EE]">
                 Relax. Your children are a blessing, not a burden.
               </span>
             </p>
@@ -187,7 +191,7 @@ export default function WhatToExpectPage() {
               rest of the body.
             </p>
 
-            <h4 className="text-xl md:text-2xl font-bold text-[#F5F3EE] pt-4">
+            <h4 className="text-2xl md:text-3xl text-[#F5F3EE] pt-6">
               Modeling Worship Together
             </h4>
             <p>
@@ -211,7 +215,7 @@ export default function WhatToExpectPage() {
               </li>
             </ul>
 
-            <h4 className="text-xl md:text-2xl font-bold text-[#F5F3EE] pt-4">
+            <h4 className="text-2xl md:text-3xl text-[#F5F3EE] pt-6">
               Grace for the &ldquo;Wiggles&rdquo;
             </h4>
             <p>
@@ -235,7 +239,7 @@ export default function WhatToExpectPage() {
               </li>
             </ul>
 
-            <h4 className="text-xl md:text-2xl font-bold text-[#F5F3EE] pt-4">
+            <h4 className="text-2xl md:text-3xl text-[#F5F3EE] pt-6">
               Our Nursery
             </h4>
             <p>
@@ -244,7 +248,7 @@ export default function WhatToExpectPage() {
               and we encourage you to utilize it at any point if it would best serve your family!
             </p>
 
-            <h4 className="text-xl md:text-2xl font-bold text-[#F5F3EE] pt-4">
+            <h4 className="text-2xl md:text-3xl text-[#F5F3EE] pt-6">
               Our Heart for Your Family
             </h4>
             <p>
@@ -268,6 +272,7 @@ export default function WhatToExpectPage() {
                 to young families, and partnering together to nurture their spiritual growth.
               </p>
             </div>
+          </div>
           </div>
         </div>
       </section>

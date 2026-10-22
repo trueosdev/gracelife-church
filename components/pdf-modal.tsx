@@ -34,7 +34,7 @@ export function PdfModal({ isOpen, onClose, pdfUrl, title }: PdfModalProps) {
       <div className="relative z-10 bg-[#F5F3EE] rounded-lg shadow-2xl w-full h-full max-w-6xl max-h-[90vh] m-4 flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
-          <h3 className="text-xl font-bold text-[#2C4061]">
+          <h3 className="text-2xl text-[#2C4061]">
             {title || "PDF Viewer"}
           </h3>
           <div className="flex items-center gap-2">

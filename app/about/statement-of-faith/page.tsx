@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { RefTagger } from "@/components/ref-tagger"
+import { PageHero } from "@/components/page-hero"
+import { Aurora } from "@/components/ambient"
 
 export const metadata: Metadata = {
   title: "Statement of Faith",
@@ -130,44 +132,36 @@ export default function StatementOfFaithPage() {
       <RefTagger />
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative pt-24 md:pt-32 pb-12 md:pb-20 px-6 bg-[#2C4061]">
-        <div className="max-w-7xl mx-auto text-center md:text-left">
-          <h1 className="text-4xl md:text-7xl font-bold text-[#F5F3EE] mb-8 md:mb-12">
-            Statement of Faith
-          </h1>
-            <div>
-              <p className="text-lg md:text-xl text-[#F5F3EE]/90 leading-relaxed max-w-4xl mx-auto md:mx-0">
-                {introduction}
-              </p>
-          </div>
-        </div>
-      </section>
+      <PageHero title="Statement of Faith">
+        <p className="text-base md:text-lg leading-[1.85] text-[#F5F3EE]/75">{introduction}</p>
+      </PageHero>
 
       {/* Content Grid */}
-      <section className="py-12 md:py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <section className="relative py-20 md:py-28 px-6">
+        <Aurora />
+        <div className="relative max-w-7xl mx-auto">
+          {/* Masonry columns, so long articles don't stretch their neighbours */}
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 md:gap-8" data-reveal-group>
             {statements.map((statement) => (
               <div 
                 key={statement.id}
-                className="bg-[#F8F6F3] p-6 md:p-8 rounded-2xl shadow-sm border border-[#2C4061]/5 flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className="break-inside-avoid mb-6 md:mb-8 bg-white/70 backdrop-blur-sm p-7 md:p-9 rounded-3xl border border-white shadow-[0_20px_50px_-30px_rgba(44,64,97,0.35)] hover:shadow-[0_35px_70px_-30px_rgba(44,64,97,0.45)] hover:-translate-y-1.5 transition-all duration-500 ease-out"
               >
-                <div className="flex items-baseline gap-3 mb-4 justify-center md:justify-start">
-                  <span className="text-sm font-bold text-[#2C4061]/40 font-mono">
+                <div className="mb-5 text-center md:text-left">
+                  <span className="block font-serif text-sm text-[#3F7660] mb-2">
                     {statement.id.toString().padStart(2, '0')}
                   </span>
-                  <h2 className="text-xl md:text-2xl font-bold text-[#2C4061]">
+                  <h2 className="text-2xl md:text-[1.7rem] text-[#2C4061]">
                     {statement.title}
                   </h2>
                 </div>
                 
-                <p className="text-[#5D5D5D] leading-relaxed mb-6 flex-grow text-center md:text-left">
+                <p className="text-[#5D5D5D] leading-[1.8] mb-6 text-center md:text-left">
                   {statement.content}
                 </p>
 
                 {statement.note && (
-                  <div className="mb-6 p-4 bg-[#F5F3EE] rounded-lg border-l-4 border-[#2C4061]/20">
+                  <div className="mb-6 p-4 bg-[#F5F3EE] rounded-2xl border-l-4 border-[#2C4061]/20">
                     <p className="text-sm italic text-[#2C4061]/70">
                       {statement.note}
                     </p>
@@ -175,7 +169,7 @@ export default function StatementOfFaithPage() {
                 )}
 
                 <div className="pt-6 border-t border-[#2C4061]/10">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#2C4061]/50 mb-2">
+                  <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#2C4061]/60 mb-2">
                     Scripture References
                   </h3>
                   <p className="text-sm text-[#2C4061]/80 leading-relaxed">

@@ -76,7 +76,7 @@
 
 @theme inline {
   --font-sans: var(--font-montserrat), system-ui, sans-serif;
-  --font-serif: var(--font-montserrat), Georgia, serif;
+  --font-serif: var(--font-ovo), Georgia, serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -123,6 +123,31 @@
   body {
     @apply bg-background text-foreground;
   }
+  /* Headings are set in Ovo, which has one weight. font-synthesis keeps any
+     leftover font-bold from being faked into a smeared bold. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-ovo), Georgia, serif;
+    font-weight: 400;
+    font-synthesis: none;
+    letter-spacing: -0.01em;
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: rgb(98 158 130 / 0.3);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 .writing-mode-vertical {
@@ -132,10 +157,10 @@
 /* Hero heading reserved for "WORSHIP SUNDAY" only */
 .superXL {
   font-size: clamp(2.75rem, 11vw, 8rem);
-  font-weight: 700;
-  line-height: 0.8;
-  font-family: var(--font-crimson), Georgia, serif;
-  letter-spacing: -0.05em;
+  font-weight: 400;
+  line-height: 0.85;
+  font-family: var(--font-ovo), Georgia, serif;
+  letter-spacing: -0.02em;
   text-align: center;
   color: #ffffff;
   text-transform: uppercase;
@@ -182,4 +207,150 @@
 .group:focus-visible .holo-overlay {
   opacity: 0.3;
   animation: holo-shift 3.5s ease-in-out infinite alternate;
+}
+
+/* ---------------------------------------------------------------------------
+   Scroll reveal. Mark an element with data-reveal, or a list with
+   data-reveal-group to reveal each child with a small stagger. Driven by a
+   CSS scroll timeline, so there is no JS and nothing is hidden where it isn't
+   supported (content simply appears) or when reduced motion is requested.
+   Keyframes use `transform`, which composes with Tailwind's translate/scale
+   hover utilities instead of overriding them.
+--------------------------------------------------------------------------- */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(2.25rem) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    [data-reveal],
+    [data-reveal-group] > * {
+      animation: reveal-up ease-out both;
+      animation-timeline: view();
+      /* A fixed scroll distance, so tall blocks fade in as quickly as short ones */
+      animation-range: entry var(--reveal-offset, 0vh) entry calc(28vh + var(--reveal-offset, 0vh));
+    }
+    [data-reveal-group] > :nth-child(3n + 2) {
+      --reveal-offset: 4vh;
+    }
+    [data-reveal-group] > :nth-child(3n + 3) {
+      --reveal-offset: 8vh;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Aurora: soft radial-gradient glows that drift slowly behind a section.
+   Only transform is animated, so it stays on the compositor.
+--------------------------------------------------------------------------- */
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* On light backgrounds, feather the edges so the tint never meets a wave or
+   neighbouring section in a visible seam. */
+.aurora-light {
+  mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+}
+
+.aurora > span {
+  position: absolute;
+  width: var(--size, 60vmax);
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  background: radial-gradient(closest-side, var(--glow), transparent);
+  animation: aurora-drift var(--duration, 30s) ease-in-out var(--delay, 0s) infinite alternate;
+}
+
+.aurora > span:nth-child(even) {
+  animation-name: aurora-drift-alt;
+}
+
+@keyframes aurora-drift {
+  0% {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-38%, -60%, 0) scale(1.15);
+  }
+  100% {
+    transform: translate3d(-58%, -42%, 0) scale(0.92);
+  }
+}
+
+@keyframes aurora-drift-alt {
+  0% {
+    transform: translate3d(-50%, -50%, 0) scale(1.08);
+  }
+  50% {
+    transform: translate3d(-62%, -40%, 0) scale(0.94);
+  }
+  100% {
+    transform: translate3d(-44%, -56%, 0) scale(1.12);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Waves: layered SVG waves that flow gently at a section's edge.
+--------------------------------------------------------------------------- */
+.waves-flow > use {
+  animation: wave-flow 28s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.waves-flow > use:nth-child(1) {
+  animation-duration: 16s;
+  animation-delay: -2s;
+}
+.waves-flow > use:nth-child(2) {
+  animation-duration: 22s;
+  animation-delay: -4s;
+}
+.waves-flow > use:nth-child(3) {
+  animation-duration: 28s;
+  animation-delay: -6s;
+}
+.waves-flow > use:nth-child(4) {
+  animation-duration: 40s;
+  animation-delay: -10s;
+}
+
+@keyframes wave-flow {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/* Slow vertical bob for decorative shapes. */
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+.float-soft {
+  animation: float-soft 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora > span,
+  .waves-flow > use,
+  .float-soft {
+    animation: none;
+  }
 }

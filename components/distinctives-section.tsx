@@ -23,10 +23,10 @@ export function DistinctivesSection() {
   ]
 
   return (
-    <section id="distinctives" className="py-12 md:py-20 px-6 bg-[#F5F3EE]">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-6xl font-bold text-[#2C4061] mb-4">
+    <section id="distinctives" className="py-20 md:py-28 px-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-14 md:mb-20" data-reveal>
+          <h2 className="text-4xl md:text-6xl text-[#2C4061] mb-6">
             Our Distinctives
           </h2>
           <p className="text-base md:text-lg text-[#5D5D5D] max-w-2xl mx-auto">
@@ -34,21 +34,20 @@ export function DistinctivesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-x-14 gap-y-16 md:gap-y-20">
           {distinctives.map((distinctive, index) => (
-            <div key={index} className="flex flex-col">
-              <div className="relative group overflow-hidden rounded-lg mb-6">
+            <div key={index} className="flex flex-col" data-reveal>
+              <div className="relative group overflow-hidden rounded-3xl mb-8 shadow-[0_30px_60px_-35px_rgba(44,64,97,0.45)]">
                 <img 
                   src={distinctive.image} 
                   alt={distinctive.title}
-                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" 
+                  className="w-full h-64 md:h-72 object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
                 />
-                <div className="absolute inset-0 bg-[#F5F3EE]/0 transition-all duration-300 group-hover:bg-[#F5F3EE]/10" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-[#2C4061] mb-4">
+              <h3 className="text-2xl md:text-3xl text-[#2C4061] mb-4">
                 {distinctive.title}
               </h3>
-              <p className="text-lg text-[#5D5D5D] leading-relaxed">
+              <p className="text-lg text-[#5D5D5D] leading-[1.8]">
                 {distinctive.description}
               </p>
             </div>

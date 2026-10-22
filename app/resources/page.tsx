@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation"
 import dynamic from "next/dynamic"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { PageHero } from "@/components/page-hero"
+import { Aurora } from "@/components/ambient"
 import { FileText, BookOpen, Users, MessageSquare, Download, MessagesSquare, MessageCircleQuestion, ShoppingBag, Baby} from "lucide-react"
 
 // Dynamically import PdfModal with SSR disabled to avoid DOMMatrix issues
@@ -102,24 +104,19 @@ export default function ResourcesPage() {
     <main>
       <Header />
       
-      {/* Hero Banner */}
-      <section className="relative pt-24 md:pt-32 pb-12 md:pb-20 px-6 bg-[#2C4061]">
-        <div className="max-w-7xl mx-auto text-center md:text-left">
-          <h1 className="text-4xl md:text-7xl font-bold text-[#F5F3EE] mb-4">Resources</h1>
-          <p className="text-lg md:text-xl text-[#F5F3EE] max-w-2xl mx-auto md:mx-0">
-            Check out resources from GraceLife Church
-          </p>
-        </div>
-      </section>
+      <PageHero title="Resources">
+        <p>Check out resources from GraceLife Church</p>
+      </PageHero>
 
       {/* Resources Grid */}
-      <section className="py-12 md:py-20 px-6 bg-[#F5F3EE]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <section className="relative py-20 md:py-28 px-6 bg-[#F5F3EE]">
+        <Aurora />
+        <div className="relative max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" data-reveal-group>
             {resources.map((resource) => (
               <div
                 key={resource.id}
-                className="bg-[#F8F6F3] rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer h-auto min-h-[250px] md:h-[280px] flex flex-col hover:-translate-y-1"
+                className="bg-white/70 backdrop-blur-sm rounded-3xl border border-white shadow-[0_20px_50px_-30px_rgba(44,64,97,0.35)] hover:shadow-[0_35px_70px_-30px_rgba(44,64,97,0.45)] transition-all duration-500 ease-out overflow-hidden group cursor-pointer h-auto min-h-[250px] md:h-[300px] flex flex-col hover:-translate-y-1.5"
                 onClick={() => handleResourceClick(resource)}
               >
                 {resource.image && (
@@ -131,19 +128,17 @@ export default function ResourcesPage() {
                     />
                   </div>
                 )}
-                <div className="p-6 flex flex-col items-center text-center flex-grow justify-center">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <div className="text-[#2C4061]">
-                      {resource.icon}
-                    </div>
-                    <h3 className="text-2xl font-bold text-[#2C4061]">
-                      {resource.title}
-                    </h3>
+                <div className="p-8 flex flex-col items-center text-center flex-grow justify-center">
+                  <div className="w-14 h-14 mb-5 rounded-full bg-[#2C4061]/5 text-[#2C4061] flex items-center justify-center transition-colors duration-500 group-hover:bg-[#2C4061] group-hover:text-[#F5F3EE] [&_svg]:w-6 [&_svg]:h-6">
+                    {resource.icon}
                   </div>
-                  <p className="text-[#5D5D5D] leading-relaxed mb-4">
+                  <h3 className="text-2xl text-[#2C4061] mb-3">
+                    {resource.title}
+                  </h3>
+                  <p className="text-[#5D5D5D] leading-relaxed mb-5">
                     {resource.description}
                   </p>
-                  <div className="flex items-center justify-center text-[#2C4061] font-medium group-hover:underline">
+                  <div className="flex items-center justify-center text-sm tracking-wide text-[#2C4061] font-medium group-hover:underline underline-offset-4">
                     {resource.pdfUrl ? (
                       <>
                         <FileText className="w-4 h-4 mr-2" />

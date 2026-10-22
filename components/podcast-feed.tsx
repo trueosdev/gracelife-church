@@ -139,17 +139,17 @@ export function PodcastFeed() {
   return (
     <div className="w-full max-w-4xl mx-auto">
       {/* Channel Info */}
-      <div className="mb-8 text-center">
+      <div className="mb-14 text-center">
         {data.channel.image && (
           <div className="flex justify-center mb-4">
             <img
               src={data.channel.image}
               alt={data.channel.title}
-              className="w-48 h-48 rounded-lg shadow-lg object-cover"
+              className="w-48 h-48 rounded-3xl shadow-[0_30px_60px_-30px_rgba(44,64,97,0.5)] object-cover"
             />
           </div>
         )}
-        <h2 className="text-3xl font-bold text-[#2C4061] mb-2">
+        <h2 className="text-4xl text-[#2C4061] mt-8 mb-3">
           {data.channel.title}
         </h2>
         {data.channel.description && (
@@ -176,11 +176,11 @@ export function PodcastFeed() {
       </div>
 
       {/* Episodes List */}
-      <div className="space-y-4">
+      <div className="space-y-5" data-reveal-group>
         {data.episodes.map((episode) => (
           <div
             key={episode.guid}
-            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-100"
+            className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 md:p-7 border border-white shadow-[0_20px_50px_-30px_rgba(44,64,97,0.35)] hover:shadow-[0_30px_60px_-30px_rgba(44,64,97,0.45)] transition-shadow duration-500"
           >
             <div className="flex items-start gap-4">
               {/* Episode Image */}
@@ -188,7 +188,7 @@ export function PodcastFeed() {
                 <img
                   src={episode.image}
                   alt={episode.title}
-                  className="flex-shrink-0 w-24 h-24 rounded-lg object-cover"
+                  className="flex-shrink-0 w-24 h-24 rounded-2xl object-cover"
                 />
               )}
               
@@ -209,7 +209,7 @@ export function PodcastFeed() {
 
               {/* Episode Info */}
               <div className="flex-1 min-w-0">
-                <h3 className="text-xl font-semibold text-[#2C4061] mb-2">
+                <h3 className="text-2xl text-[#2C4061] mb-2">
                   {episode.title}
                 </h3>
                 {episode.description && (

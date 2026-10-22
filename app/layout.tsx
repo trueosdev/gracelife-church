@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Montserrat, Montserrat_Alternates, Crimson_Text } from "next/font/google"
+import { Montserrat, Ovo } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import {
   churchJsonLd,
@@ -19,16 +19,11 @@ const montserrat = Montserrat({
   variable: "--font-montserrat"
 })
 
-const montserratAlternates = Montserrat_Alternates({
+// Display serif for headings. Ovo ships a single weight, so headings stay at 400.
+const ovo = Ovo({
   subsets: ["latin"],
-  weight: ["500"],
-  variable: "--font-montserrat-alt"
-})
-
-const crimsonText = Crimson_Text({
-  subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-crimson"
+  weight: "400",
+  variable: "--font-ovo"
 })
 
 export const metadata: Metadata = {
@@ -89,14 +84,11 @@ export default function RootLayout({
 }>) {
   const structuredData = churchJsonLd()
 
+  // Font variables go on <html>, not <body>: Tailwind resolves theme tokens such as
+  // --font-serif at :root, so the variables they reference must be defined there.
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&display=swap" rel="stylesheet" />
-      </head>
-      <body className={`${montserrat.variable} ${montserratAlternates.variable} ${crimsonText.variable} ${montserrat.className} antialiased`}>
+    <html lang="en" className={`${montserrat.variable} ${ovo.variable}`}>
+      <body className={`${montserrat.className} antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
