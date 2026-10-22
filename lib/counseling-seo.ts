@@ -259,7 +259,7 @@ export function counselingJsonLd(steps: readonly { title: string; body: string }
         },
         availableChannel: {
           "@type": "ServiceChannel",
-          name: "Request Counseling",
+          name: "Request Care",
           serviceUrl: COUNSELING_PORTAL_URL,
           availableLanguage: { "@type": "Language", name: "English", alternateName: "en" },
           servicePhone: {

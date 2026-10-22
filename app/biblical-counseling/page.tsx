@@ -85,7 +85,7 @@ function Scripture({
   )
 }
 
-const CARE_PORTAL_LABEL = "Request Counseling"
+const CARE_PORTAL_LABEL = "Request Care"
 
 const commitments = [
   {
